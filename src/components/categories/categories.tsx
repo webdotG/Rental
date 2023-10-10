@@ -2,7 +2,7 @@ import { useState } from "react"
 
 function Categories({value, onChangeCategory}) {
 
-  const CATEGORIES = ['Все', 'Краны', 'Бульдозеры', 'Эксковаторы', 'Камазы', 'Услуги']
+  const CATEGORIES = ['Все', 'Краны', 'Бульдозеры', 'Эксковаторы', 'Погрузчики', 'Услуги']
 
   return (
     <div className="categories">
