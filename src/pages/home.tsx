@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect, useContext, useRef, useCallback } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { setCategoryId, setCurrentPage, setFilters } from "../redux/slices/filterSlice"
+import { fetchItems } from '../redux/slices/itemsSlice'
 import { SearchContext } from '../App'
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs'
@@ -20,8 +21,8 @@ function Home() {
   const categoryId = useSelector((state) => state.filter.categoryId)
   const sortProperty = useSelector((state) => state.filter.sort.sortProperty)
   const currentPage = useSelector((state) => state.filter.currentPage)
+  const items = useSelector((state) => state.items.items)
   const { searchValue } = useContext(SearchContext)
-  const [items, setItems] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
   const onChangeCategory = useCallback((id) => {
@@ -60,21 +61,30 @@ function Home() {
     }
   }, [])
 
-  useEffect(() => {
+  const getItems = async () => {
     window.scrollTo(0, 0)
     setIsLoading(true)
     const sortBy = sortProperty.replace('-', '');
     const order = sortProperty.includes('-') ? 'asc' : 'desc';
     const category = categoryId > 0 ? `category=${categoryId}` : '';
     // const search = searchValue ? `&search=${searchValue}` : '';  &${search}
+    try {
+      dispatch(fetchItems({sortBy,order, category, currentPage}))    
+      console.log('fetschItems :', fetchItems)
+    } catch (error) {
+      alert('что-то сломалосб на сервере')
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
-    axios
-      .get(`https://651f2c9444a3a8aa47697fdb.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}`)
-      .then((res) => {
-        setItems(res.data)
-        setIsLoading(false)
-      })
+
+  useEffect(() => {
+    if (window.location.search) {
+      getItems()
+    }
   }, [categoryId, sortProperty, currentPage, searchValue])
+
 
   return (
     <>
