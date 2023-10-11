@@ -6,10 +6,10 @@ import { SearchContext } from '../App'
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs'
 import Categories from '../components/categories/categories';
-import PizzaBlock from '../components/itemBlock/itemBlock';
 import Sort, { sortList } from '../components/sort/sort';
 import Skeleton from '../components/skeleton';
 import Pagination from '../components/pagination/pagination';
+import ItemBlock from '../components/itemBlock/itemBlock';
 
 
 function Home() {
@@ -93,8 +93,9 @@ function Home() {
               } return false
             })
             .map((obj) =>
-              <PizzaBlock
+              <ItemBlock
                 key={obj.id}
+                id={obj.id}
                 title={obj.title}
                 price={obj.price}
                 image={obj.imageUrl}

@@ -12,9 +12,9 @@ export const sortList = [
 ]
 
 function Sort() {
+
   const dispatch = useDispatch()
   const sort = useSelector((state) => state.filter.sort)
-  const sortRef = useRef()
 
   const [open, setOpen] = useState(false)
 
@@ -23,14 +23,27 @@ function Sort() {
     setOpen(false)
   }
 
-  useEffect(() => {
-    document.body.addEventListener('click', (event) => {
-      // console.log(event)
-      // if (!event.composedPath().includes(sortRef.current)) { ========= composedPath посмотреть как пофтксить
-      //   setOpen(false)
-      // }
-    })
-  }, [])
+  const sortRef = useRef()
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (!event.composedPath().includes(sortRef.current)) {       //========= composedPath посмотреть как пофтксить
+  //       setOpen(false)
+  //     }
+  //   }
+  //   document.body.addEventListener('click', handleClickOutside)
+  //   return () => {
+  //     console.log('componen did unmount')
+  //     document.removeEventListener('click', handleClickOutside)
+  //   }
+  // }, [])
+  // useEffect(() => {
+  //   document.body.addEventListener('click', { once: true }, (event) => {
+  //     if (!event.composedPath().includes(sortRef.current)) {
+  //       setOpen(false);
+  //     }
+  //   });
+  // }, []);
+
 
   return (
     <div ref={setSort} className="sort">

@@ -1,11 +1,38 @@
 import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { addItem } from '../../redux/slices/cartSlice'
 
-function ItemBlock({ title, price, image, sizes, types }) {
+const NAMETYPES = ['частное лицо', 'юредическое лицо']
+const SIZEVALUES = [100, 500, 1000]
 
-  const NAMETYPES = ['аренда на сутки', 'аренда на месяц']
+function ItemBlock({ id, title, price, image, sizes, types }) {
 
   const [activeType, setActiveType] = useState(0)
   const [activeSize, setActiveSize] = useState(0)
+
+  const dispatch = useDispatch()
+  const cartItem = useSelector((state) => state.cart.items.find((obj) => obj.id ===id))  
+  const addedCount = cartItem ? cartItem.count : 0
+  // const cartItem = useSelector((state) => state.cart.items.find((obj) =>{
+  //       obj.id === id &&
+  //       obj.type === NAMETYPES[activeType] &&
+  //       obj.size === SIZEVALUES[activeSize]
+  //     })
+  // );
+  // const addedCount = cartItem ? cartItem.count : 0;
+
+
+  const onClickAdd = () => {
+    const item = {
+      id,
+      title,
+      price,
+      image,
+      type: NAMETYPES[activeType],
+      sizes: SIZEVALUES[activeSize]
+    }
+    dispatch(addItem(item))
+  }
 
   return (
     <div className="item-block">
@@ -33,7 +60,9 @@ function ItemBlock({ title, price, image, sizes, types }) {
       </div>
       <div className="item-block__bottom">
         <div className="item-block__price">от {price} ₽</div>
-        <button className="button button--outline button--add">
+        <button
+          onClick={onClickAdd}
+          className="button button--outline button--add">
           <svg
             width="12"
             height="12"
@@ -47,7 +76,8 @@ function ItemBlock({ title, price, image, sizes, types }) {
             />
           </svg>
           <span>Добавить</span>
-          <i>0</i>
+          {/* <i>{cartItem}</i> */}
+          {addedCount > 0 && <i>{addedCount}</i>}
         </button>
       </div>
     </div>

@@ -7,7 +7,9 @@
 
 
   &__image {
+    height: 200px;
     width: 260px;
+   display: block;
   }
 
   &__title {
@@ -45,6 +47,8 @@
           border-radius: 5px;
           cursor: auto;
         }
+
+        
       }
     }
   }

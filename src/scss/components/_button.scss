@@ -3,7 +3,7 @@
 .button {
   display: inline-block;
   background-color: $orange;
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 10px 20px;
   min-width: 100px;
   text-align: center;
@@ -143,6 +143,7 @@
     span {
       font-weight: 600;
       font-size: 16px;
+      color: white;
     }
   }
 }
