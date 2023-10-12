@@ -2,8 +2,10 @@ import Header from './components/header/header';
 import Home from './pages/home';
 import Cart from './pages/cart';
 import NotFound from './pages/notFound';
+import ItemPage from './pages/pageItem';
 import { Routes, Route } from "react-router-dom";
 import './scss/app.scss'
+
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
           <Routes>
             <Route path='/Rental' element={<Home />} />
             <Route path='/Rental/cart' element={<Cart />} />
+            <Route path='/Rental/item/:id' element={<ItemPage />} /> 
             <Route path='*' element={<NotFound />} />
           </Routes>
         </div>

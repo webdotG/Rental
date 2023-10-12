@@ -1,8 +1,8 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from 'react-router-dom'
 import { setCategoryId, setCurrentPage, setFilters } from "../redux/slices/filterSlice"
 import { fetchItems } from '../redux/slices/itemsSlice'
-import { useNavigate } from 'react-router-dom';
 import qs from 'qs'
 import Categories from '../components/categories/categories';
 import Sort, { sortList } from '../components/sort/sort';
@@ -72,6 +72,13 @@ function Home() {
     getItems()
   }, [categoryId, sortProperty, currentPage, searchValue])
 
+  const skeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />)
+
+  const itemArray = items.map((obj) =>
+    <Link key={obj.id} to={`item/${obj.id}`}>
+      <ItemBlock {...obj} />
+    </Link>
+  )
 
   return (
     <>
@@ -88,8 +95,8 @@ function Home() {
         }
         {
           status === 'loading'
-            ? [...new Array(9)].map((_, index) => <Skeleton key={index} />)
-            : items.map((obj) => <ItemBlock key={obj.id} {...obj} />)
+            ? skeleton
+            : itemArray
           // .filter((obj) => {
           //   if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
           //     return true
