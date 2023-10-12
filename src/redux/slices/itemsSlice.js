@@ -10,11 +10,11 @@ export const fetchItems = createAsyncThunk(
     const res = await axios.get(
       `https://651f2c9444a3a8aa47697fdb.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}`//&${search}
     )
-     return (res.data)
-    // console.log(thunkApi.getState())
-    // if (res.data.length === 0){
-    //   return thunkApi.rejectWithValue('пришёл пустой массив items')
-    // } return thunkApi.fulfillWithValue(res.data ) //всё нормально пришли данные
+    //  return (res.data)
+    console.log(thunkApi.getState())
+    if (res.data.length === 0){
+      return thunkApi.rejectWithValue('пришёл пустой массив items')
+    } return thunkApi.fulfillWithValue(res.data ) //всё нормально пришли данные
       
   }
 )
