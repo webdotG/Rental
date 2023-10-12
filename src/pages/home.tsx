@@ -1,9 +1,7 @@
-import axios from 'axios';
-import { useState, useEffect, useContext, useRef, useCallback } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { setCategoryId, setCurrentPage, setFilters } from "../redux/slices/filterSlice"
 import { fetchItems } from '../redux/slices/itemsSlice'
-import { SearchContext } from '../App'
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs'
 import Categories from '../components/categories/categories';
@@ -21,9 +19,9 @@ function Home() {
   const categoryId = useSelector((state) => state.filter.categoryId)
   const sortProperty = useSelector((state) => state.filter.sort.sortProperty)
   const currentPage = useSelector((state) => state.filter.currentPage)
+  const searchValue = useSelector((state) => state.filter.searchValue)
   const items = useSelector((state) => state.items.items)
-  const { searchValue } = useContext(SearchContext)
-  const [isLoading, setIsLoading] = useState(true)
+  const status = useSelector((state) => state.items.status)
 
   const onChangeCategory = useCallback((id) => {
     dispatch(setCategoryId(id))
@@ -63,26 +61,15 @@ function Home() {
 
   const getItems = async () => {
     window.scrollTo(0, 0)
-    setIsLoading(true)
     const sortBy = sortProperty.replace('-', '');
     const order = sortProperty.includes('-') ? 'asc' : 'desc';
     const category = categoryId > 0 ? `category=${categoryId}` : '';
     // const search = searchValue ? `&search=${searchValue}` : '';  &${search}
-    try {
-      dispatch(fetchItems({sortBy,order, category, currentPage}))    
-      console.log('fetschItems :', fetchItems)
-    } catch (error) {
-      alert('что-то сломалосб на сервере')
-    } finally {
-      setIsLoading(false)
-    }
+    dispatch(fetchItems({ sortBy, order, category, currentPage }))
   }
 
-
   useEffect(() => {
-    if (window.location.search) {
-      getItems()
-    }
+    getItems()
   }, [categoryId, sortProperty, currentPage, searchValue])
 
 
@@ -94,25 +81,20 @@ function Home() {
       </div>
       <h2 className="content__title">{categoryId}</h2>
       <div className="content__items">
-        {isLoading
-          ? [...new Array(9)].map((_, index) => <Skeleton key={index} />)
-          : items
-            .filter((obj) => {
-              if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
-                return true
-              } return false
-            })
-            .map((obj) =>
-              <ItemBlock
-                key={obj.id}
-                id={obj.id}
-                title={obj.title}
-                price={obj.price}
-                image={obj.imageUrl}
-                sizes={obj.sizes}
-                types={obj.types}
-              />
-            )
+        {
+          status === 'error'
+            ? (<div><h1>проблема с сервером</h1><p>скоро всё починим</p></div>)
+            : (console.log('allRight'))
+        }
+        {
+          status === 'loading'
+            ? [...new Array(9)].map((_, index) => <Skeleton key={index} />)
+            : items.map((obj) => <ItemBlock key={obj.id} {...obj} />)
+          // .filter((obj) => {
+          //   if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
+          //     return true
+          //   } return false
+          // })
         }
       </div>
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />

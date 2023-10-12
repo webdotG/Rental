@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, } from "react-router-dom"
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import Search from "../search/search"
 
