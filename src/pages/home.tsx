@@ -1,8 +1,8 @@
 import { useEffect, useRef, useCallback } from 'react'
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import { useNavigate } from 'react-router-dom'
 import { setCategoryId, setCurrentPage, setFilters } from "../redux/slices/filterSlice"
-import { fetchItems } from '../redux/slices/itemsSlice'
+import { fetchItems, typeItem } from '../redux/slices/itemsSlice'
 import qs from 'qs'
 import Categories from '../components/categories/categories';
 import  { sortList } from '../components/sort/sort';
@@ -10,12 +10,12 @@ import  Sort from '../components/sort/sort';
 import Skeleton from '../components/skeleton';
 import Pagination from '../components/pagination/pagination';
 import ItemBlock from '../components/itemBlock/itemBlock';
-import { RootState } from '../redux/store';
+import { RootState, useAppDispatch } from '../redux/store';
 
 
 function Home() {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const isSearch = useRef(false)
   const isMounted = useRef(false)
   const categoryId = useSelector((state:RootState) => state.filter.categoryId)
@@ -75,7 +75,7 @@ function Home() {
   }, [categoryId, sortProperty, currentPage, searchValue])
 
   const skeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />)
-  const itemArray = items.map((obj: any) => <ItemBlock key={obj.id} {...obj} />)
+  const itemArray = items.map((obj: typeItem) => <ItemBlock key={obj.id} {...obj} />)
 
   return (
     <>
@@ -85,11 +85,11 @@ function Home() {
       </div>
       <h2 className="content__title">{categoryId}</h2>
       <div className="content__items">
-        {
+        {/* {
           status === 'error'
             ? (<div><h1>проблема с сервером</h1><p>скоро всё починим</p></div>)
             : (console.log('allRight'))
-        }
+        } */}
         {
           status === 'loading'
             ? skeleton

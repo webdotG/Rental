@@ -7,7 +7,7 @@ function Cart() {
   
   const dispatch = useDispatch()
   const { totalPrice, items} = useSelector((state) => state.cart)  
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0)
+  const totalCount = items.reduce((sum: number, item: number) => sum + item.count, 0)
   
   const onClickClear = () => {
     if (window.confirm('удалить всё ?')) {

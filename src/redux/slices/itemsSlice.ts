@@ -2,11 +2,11 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
 
-type typeItem = {
+export type typeItem = {
   id: string,
   title: string,
   price: number,
-  image: string,
+  imageUrl: string,
   sizes: number[],
   types: number[],
 }
@@ -16,11 +16,11 @@ interface typeItemSliceState {
   status: 'loading' | 'success' | 'error'
 }
 // type typeFetchItemsArguments = Record<string, string>
-type typeFetchItemsArguments = {
+export type typeFetchItemsArguments = {
   sortBy: string,
   order: string,
   category: string,
-  currentPage: string,
+  currentPage: number,
 }
 
 export const fetchItems = createAsyncThunk<typeItem[],  typeFetchItemsArguments >(
