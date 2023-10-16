@@ -75,7 +75,7 @@ function Home() {
   const skeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />)
 
   const itemArray = items.map((obj) =>
-      <ItemBlock {...obj} />
+      <ItemBlock key={obj.id} {...obj} />
   )
 
   return (

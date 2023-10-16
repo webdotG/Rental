@@ -12,10 +12,10 @@ export const fetchItems = createAsyncThunk(
     )
     //  return (res.data)
     console.log(thunkApi.getState())
-    if (res.data.length === 0){
+    if (res.data.length === 0) {
       return thunkApi.rejectWithValue('пришёл пустой массив items')
-    } return thunkApi.fulfillWithValue(res.data ) //всё нормально пришли данные
-      
+    } return thunkApi.fulfillWithValue(res.data) //всё нормально пришли данные
+
   }
 )
 
@@ -40,13 +40,13 @@ const itemsSlice = createSlice({
         console.log('идёт отправка запроса')
       })
       .addCase(fetchItems.fulfilled, (state, action) => {
-        console.log('fetchItems.fulfilled ',action)        
+        console.log('fetchItems.fulfilled ', action)
         state.items = action.payload
         state.status = "success"
         console.log('запрос выполнен')
       })
       .addCase(fetchItems.rejected, (state, action) => {
-        console.log( 'fetchItems.rejected ',action)
+        console.log('fetchItems.rejected ', action)
         state.status = "error"
         state.items = []
         console.log('ошибка запроса')
