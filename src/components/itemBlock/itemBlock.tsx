@@ -48,13 +48,14 @@ function ItemBlock({ id, title, price, imageUrl, sizes, types }: typeItemBlockPr
   }
 
   const onClickDelete = () => {
-    const item = {
+    const item: typeCartItem = {
       id,
       title,
       price,
-      imageUrl,
       type: NAMETYPES[activeType],
-      sizes: SIZEVALUES[activeSize]
+      size: SIZEVALUES[activeSize],
+      count: 0,
+      imageUrl, 
     }
     dispatch(deleteItem(item))
   }
