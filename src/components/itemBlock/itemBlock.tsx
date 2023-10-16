@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from 'react-router-dom'
-import { addItem, deleteItem } from '../../redux/slices/cartSlice'
+import { addItem, deleteItem, typeCartItem } from '../../redux/slices/cartSlice'
 import style from './itemBlock.module.scss'
 
 const NAMETYPES = ['частное лицо', 'юредическое лицо']
@@ -11,12 +11,12 @@ type typeItemBlockProps = {
   id: string,
   title: string,
   price: number,
-  image: string,
+  imageUrl: string,
   sizes: number[],
   types: number[],
 }
 
-function ItemBlock({ id, title, price, image, sizes, types }: typeItemBlockProps) {
+function ItemBlock({ id, title, price, imageUrl, sizes, types }: typeItemBlockProps) {
 
   const [activeType, setActiveType] = useState(0)
   const [activeSize, setActiveSize] = useState(0)
@@ -34,14 +34,16 @@ function ItemBlock({ id, title, price, image, sizes, types }: typeItemBlockProps
 
 
   const onClickAdd = () => {
-    const item = {
+    const item: typeCartItem = {
       id,
       title,
       price,
-      image,
       type: NAMETYPES[activeType],
-      sizes: SIZEVALUES[activeSize]
+      size: SIZEVALUES[activeSize],
+      count: 0,
+      imageUrl, 
     }
+
     dispatch(addItem(item))
   }
 
@@ -50,7 +52,7 @@ function ItemBlock({ id, title, price, image, sizes, types }: typeItemBlockProps
       id,
       title,
       price,
-      image,
+      imageUrl,
       type: NAMETYPES[activeType],
       sizes: SIZEVALUES[activeSize]
     }
@@ -61,7 +63,7 @@ function ItemBlock({ id, title, price, image, sizes, types }: typeItemBlockProps
 
   return (
     <div className="item-block">
-      <img className="item-block__image" src={image} alt="ФОТО ТЕХНИКИ" />
+      <img className="item-block__image" src={imageUrl} alt="ФОТО ТЕХНИКИ" />
       <h4 className="item-block__title">{title}</h4>
       <div className="item-block__selector">
         <ul>

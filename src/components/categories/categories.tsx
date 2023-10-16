@@ -1,12 +1,14 @@
+
 type typeCategoriesProps = {
   value: number,
-  onChangeCategory: any,
+  onChangeCategory: (index: number) => void,
 }
 
+const CATEGORIES = ['Все', 'Краны', 'Бульдозеры', 'Эксковаторы', 'Погрузчики', 'Услуги']
+
+
 function Categories({value, onChangeCategory}:typeCategoriesProps) {
-
-  const CATEGORIES = ['Все', 'Краны', 'Бульдозеры', 'Эксковаторы', 'Погрузчики', 'Услуги']
-
+ 
   return (
     <div className="categories">
       <ul>

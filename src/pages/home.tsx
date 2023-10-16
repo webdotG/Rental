@@ -5,10 +5,12 @@ import { setCategoryId, setCurrentPage, setFilters } from "../redux/slices/filte
 import { fetchItems } from '../redux/slices/itemsSlice'
 import qs from 'qs'
 import Categories from '../components/categories/categories';
-import Sort, { sortList } from '../components/sort/sort';
+import  { sortList } from '../components/sort/sort';
+import  Sort from '../components/sort/sort';
 import Skeleton from '../components/skeleton';
 import Pagination from '../components/pagination/pagination';
 import ItemBlock from '../components/itemBlock/itemBlock';
+import { RootState } from '../redux/store';
 
 
 function Home() {
@@ -16,18 +18,18 @@ function Home() {
   const dispatch = useDispatch()
   const isSearch = useRef(false)
   const isMounted = useRef(false)
-  const categoryId = useSelector((state) => state.filter.categoryId)
-  const sortProperty = useSelector((state) => state.filter.sort.sortProperty)
-  const currentPage = useSelector((state) => state.filter.currentPage)
-  const searchValue = useSelector((state) => state.filter.searchValue)
-  const items = useSelector((state) => state.items.items)
-  const status = useSelector((state) => state.items.status)
+  const categoryId = useSelector((state:RootState) => state.filter.categoryId)
+  const sortProperty = useSelector((state:RootState) => state.filter.sort.sortProperty)
+  const currentPage = useSelector((state:RootState) => state.filter.currentPage)
+  const searchValue = useSelector((state:RootState) => state.filter.searchValue)
+  const items = useSelector((state:RootState) => state.items.items)
+  const status = useSelector((state:RootState) => state.items.status)
 
-  const onChangeCategory = useCallback((id) => {
+  const onChangeCategory = useCallback((id: number) => {
     dispatch(setCategoryId(id))
   }, [])
 
-  const onChangePage = (page) => {
+  const onChangePage = (page: number) => {
     dispatch(setCurrentPage(page))
   }
 
@@ -73,10 +75,7 @@ function Home() {
   }, [categoryId, sortProperty, currentPage, searchValue])
 
   const skeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />)
-
-  const itemArray = items.map((obj) =>
-      <ItemBlock key={obj.id} {...obj} />
-  )
+  const itemArray = items.map((obj: any) => <ItemBlock key={obj.id} {...obj} />)
 
   return (
     <>

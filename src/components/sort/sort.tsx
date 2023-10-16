@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { setSort } from '../../redux/slices/filterSlice'
 
@@ -17,7 +17,7 @@ export const sortList: typeSortList[] = [
 ]
 
 function Sort() {
-
+  const sortRef = useRef<HTMLElement>()
   const dispatch = useDispatch()
   const sort = useSelector((state) => state.filter.sort)
  
@@ -28,13 +28,6 @@ function Sort() {
     setOpen(false)
   }
 
-  // const sortRef = useRef()
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (!event.composedPath().includes(sortRef.current)) {       //========= composedPath посмотреть как пофтксить
-  //       setOpen(false)
-  //     }
-  //   }
   //   document.body.addEventListener('click', handleClickOutside)
   //   return () => {
   //     console.log('componen did unmount')
@@ -49,6 +42,24 @@ function Sort() {
   //   });
   // }, []);
 
+
+
+  type typePopUpClick = MouseEvent & {
+    path: Node[]
+  }
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      
+      // path  = event.path || (event.composedPath && event.composedPath());
+      const _event = event as typePopUpClick
+      if (sortRef.current && !_event.path.includes(sortRef.current)) {  //========= composedPath посмотреть как пофтксить
+        setOpen(false)
+      }
+    }
+    document.body.addEventListener('click', handleClickOutside)
+    return () => document.body.removeEventListener('click', handleClickOutside)
+  }, [])
+    
 
   return (
     <div ref={setSort} className="sort">

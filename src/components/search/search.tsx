@@ -1,16 +1,18 @@
-import { useRef, useCallback, useState } from 'react'
+import React, { useRef, useCallback, useState } from 'react'
 import {setSearchValue} from '../../redux/slices/filterSlice'
 import { useDispatch } from 'react-redux'
 import debounce from 'lodash.debounce'
 import styles from './search.module.scss'
 
+
+
 function Search() {
   const dispatch = useDispatch()
   const inputRef = useRef<HTMLInputElement>(null)
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState<string>('')
 
-
-  const onClickClear = () => {
+  const onClickClear = (event: React.MouseEvent<SVGSVGElement>) => { 
+    console.log('onClickClear event : ', event)
     dispatch(setSearchValue(''))
     setInputValue('')
     if (inputRef.current){     //TS lifeHack
@@ -26,7 +28,7 @@ function Search() {
     }, 500),
     []
   )
-  const onChangeInput = (event) => {
+  const onChangeInput = (event:React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
     updateSearchValue(event.target.value)
   }
