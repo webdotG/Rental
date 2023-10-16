@@ -6,14 +6,18 @@ import styles from './search.module.scss'
 
 function Search() {
   const dispatch = useDispatch()
-  const inputRef = useRef()
+  const inputRef = useRef<HTMLInputElement>(null)
   const [inputValue, setInputValue] = useState('')
 
 
   const onClickClear = () => {
     dispatch(setSearchValue(''))
     setInputValue('')
-    inputRef.current.focus()
+    if (inputRef.current){     //TS lifeHack
+      inputRef.current.focus()
+    }
+    // inputRef.current ? focus() //TS lifeHack опциональеая последовательность
+    
   }
 
   const updateSearchValue = useCallback(

@@ -1,6 +1,9 @@
-import { useState } from "react"
+type typeCategoriesProps = {
+  value: number,
+  onChangeCategory: any,
+}
 
-function Categories({value, onChangeCategory}) {
+function Categories({value, onChangeCategory}:typeCategoriesProps) {
 
   const CATEGORIES = ['Все', 'Краны', 'Бульдозеры', 'Эксковаторы', 'Погрузчики', 'Услуги']
 

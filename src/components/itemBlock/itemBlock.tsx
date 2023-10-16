@@ -1,17 +1,28 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { Link } from 'react-router-dom'
 import { addItem } from '../../redux/slices/cartSlice'
+import style from './itemBlock.module.scss'
 
 const NAMETYPES = ['частное лицо', 'юредическое лицо']
 const SIZEVALUES = [100, 500, 1000]
 
-function ItemBlock({ id, title, price, image, sizes, types }) {
+type typeItemBlockProps = {
+  id: string,
+  title: string,
+  price: number,
+  image: string,
+  sizes: number[],
+  types: number[],
+}
+
+function ItemBlock({ id, title, price, image, sizes, types }: typeItemBlockProps) {
 
   const [activeType, setActiveType] = useState(0)
   const [activeSize, setActiveSize] = useState(0)
 
   const dispatch = useDispatch()
-  const cartItem = useSelector((state) => state.cart.items.find((obj) => obj.id ===id))  
+  const cartItem = useSelector((state) => state.cart.items.find((obj) => obj.id === id))
   const addedCount = cartItem ? cartItem.count : 0
   // const cartItem = useSelector((state) => state.cart.items.find((obj) =>{
   //       obj.id === id &&
@@ -33,6 +44,14 @@ function ItemBlock({ id, title, price, image, sizes, types }) {
     }
     dispatch(addItem(item))
   }
+
+
+  // const itemArray = items.map((obj) =>
+  //   // <Link key={obj.id} to={`item/${obj.id}`}>
+  //     <ItemBlock {...obj} />
+  //   // </Link>
+  // )
+
 
   return (
     <div className="item-block">
@@ -80,6 +99,11 @@ function ItemBlock({ id, title, price, image, sizes, types }) {
           {addedCount > 0 && <i>{addedCount}</i>}
         </button>
       </div>
+      <Link
+        className={style.linkTo}
+        key={id}
+        to={`item/${id}`}
+      >Показть всю информацию</Link>
     </div>
   )
 }

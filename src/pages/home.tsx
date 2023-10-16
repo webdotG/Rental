@@ -1,6 +1,6 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { setCategoryId, setCurrentPage, setFilters } from "../redux/slices/filterSlice"
 import { fetchItems } from '../redux/slices/itemsSlice'
 import qs from 'qs'
@@ -75,9 +75,7 @@ function Home() {
   const skeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />)
 
   const itemArray = items.map((obj) =>
-    <Link key={obj.id} to={`item/${obj.id}`}>
       <ItemBlock {...obj} />
-    </Link>
   )
 
   return (

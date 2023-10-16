@@ -20,6 +20,7 @@ function Header() {
             </div>
           </div>
         </Link>
+        {/* {location.pathname !== '/Rental/item/' && ( )} */}
         <Search />
         <div className="header__cart">
           {location.pathname !== '/Rental/cart' && (

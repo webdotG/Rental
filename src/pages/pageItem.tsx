@@ -8,7 +8,11 @@ function ItemPage() {
   const { id } = useParams()
   // console.log(params.id)
 
-  const [item, setItem] = useState()
+  const [item, setItem] = useState<{
+    imageUrl: string,
+    title: string,
+    price: number,
+  }>()
 
   useEffect(() => {
     async function fetchItemId() {
