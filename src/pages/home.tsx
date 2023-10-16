@@ -2,7 +2,7 @@ import { useEffect, useRef, useCallback } from 'react'
 import { useSelector} from "react-redux";
 import { useNavigate } from 'react-router-dom'
 import { setCategoryId, setCurrentPage, setFilters } from "../redux/slices/filterSlice"
-import { fetchItems, typeItem } from '../redux/slices/itemsSlice'
+import { fetchItems, typeItem, typeSearchItemParams } from '../redux/slices/itemsSlice'
 import qs from 'qs'
 import Categories from '../components/categories/categories';
 import  { sortList } from '../components/sort/sort';
@@ -33,42 +33,50 @@ function Home() {
     dispatch(setCurrentPage(page))
   }
 
-  // Если изменил параметры и был первый рендер
-  useEffect(() => {
-    if (isMounted.current) {
-      const queryString = qs.stringify({
-        categoryId,
-        currentPage,
-        sortProperty
-      })
-      navigate(`?${queryString}`)
-    }
-    isMounted.current = true
-  }, [categoryId, sortProperty, currentPage])
-
-  // Если был первый рендер, то проверяю URl-параметры и сохраняю в редакс
-  useEffect(() => {
-    if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1))
-      const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty)
-      dispatch(
-        setFilters({
-          ...params,
-          sort
-        })
-      )
-      isSearch.current = true
-    }
-  }, [])
-
   const getItems = async () => {
     window.scrollTo(0, 0)
     const sortBy = sortProperty.replace('-', '');
     const order = sortProperty.includes('-') ? 'asc' : 'desc';
     const category = categoryId > 0 ? `category=${categoryId}` : '';
-    // const search = searchValue ? `&search=${searchValue}` : '';  &${search}
-    dispatch(fetchItems({ sortBy, order, category, currentPage }))
+    const search = searchValue ? `&search=${searchValue}` : ''; // &${search}
+    dispatch(fetchItems({ sortBy, order, category, currentPage, search }))
   }
+
+  // useEffect(() => {
+  //   if (isMounted.current) {
+  //     const queryString = qs.stringify({
+  //       categoryId,
+  //       currentPage,
+  //       sortProperty
+  //     })
+  //     navigate(`?${queryString}`)
+  //   }
+  //   isMounted.current = true
+  // }, [categoryId, sortProperty, currentPage])
+
+  // useEffect(() => {
+  //   if (window.location.search) {
+  //     const params = qs.parse(window.location.search.substring(1)) as unknown as typeSearchItemParams
+  //     const sort = sortList.find((obj) => obj.sortProperty === params.sortBy)
+      
+  //     dispatch(setFilters({
+  //       searchValue: params.search,
+  //       categoryId: Number(params.category),
+  //       currentPage: Number(params.currentPage),
+  //       sort:sort ? sort : sortList[0],
+        
+  //     }))
+
+  //     // dispatch(
+  //     //   setFilters({
+  //     //     ...params,
+  //     //     sort
+  //     //   })
+  //     // )
+  //     isSearch.current = true
+  //   }
+  // }, [])
+
 
   useEffect(() => {
     getItems()

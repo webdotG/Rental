@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
+import { typeSort } from "./filterSlice";
 
 export type typeItem = {
   id: string,
@@ -10,26 +11,32 @@ export type typeItem = {
   sizes: number[],
   types: number[],
 }
-
 interface typeItemSliceState {
   items: typeItem[] ,
   status: 'loading' | 'success' | 'error'
 }
-// type typeFetchItemsArguments = Record<string, string>
 export type typeFetchItemsArguments = {
-  sortBy: string,
+  sortBy: typeSort,
   order: string,
   category: string,
-  currentPage: number,
+  currentPage: string,
 }
 
-export const fetchItems = createAsyncThunk<typeItem[],  typeFetchItemsArguments >(
+export type typeSearchItemParams = {
+  sortBy: string, 
+  order: string, 
+  category: string, 
+  currentPage: number,
+  search: string,
+}
+
+export const fetchItems = createAsyncThunk<typeItem[], typeSearchItemParams >(
   'items/fetchItems',
   async (params) => {
-    const { sortBy, order, category, currentPage } = params
+    const { sortBy, order, category, currentPage, search } = params
     console.log('DEBUG fetch')
     const { data } = await axios.get<typeItem[]>(
-      `https://651f2c9444a3a8aa47697fdb.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}`//&${search}
+      `https://651f2c9444a3a8aa47697fdb.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}&${search}`//&${search}
     )
      return data 
     // console.log(thunkApi.getState())
