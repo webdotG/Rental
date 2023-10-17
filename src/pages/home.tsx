@@ -3,7 +3,7 @@ import { useSelector} from "react-redux";
 import { RootState, useAppDispatch } from '../redux/store';
 // import { useNavigate } from 'react-router-dom'
 import { setCategoryId, setCurrentPage,} from "../redux/slices/filterSlice" // setFilters 
-import { fetchItems  } from '../redux/slices/itemsSlice' // typeSearchItemParams
+import { fetchItems  } from '../redux/action/fetchItems' // typeSearchItemParams
 import { typeItem } from '../redux/@types';
 // import qs from 'qs'
 import Categories from '../components/categories/categories';

@@ -1,24 +1,8 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice,} from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { typeItem, typeItemSliceState, typeSearchItemParams } from "../@types";
+import { fetchItems } from "../action/fetchItems";
+import { typeItemSliceState, } from "../@types";
 
-export const fetchItems = createAsyncThunk<typeItem[], typeSearchItemParams >(
-  'items/fetchItems',
-  async (params) => {
-    const { sortBy, order, category, currentPage, search } = params
-    console.log('DEBUG fetch')
-    const { data } = await axios.get<typeItem[]>(
-      `https://651f2c9444a3a8aa47697fdb.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}&${search}`//&${search}
-    )
-     return data 
-    // console.log(thunkApi.getState())
-    // if (data.length === 0) {
-    //   return thunkApi.rejectWithValue('пришёл пустой массив items')
-    // } return thunkApi.fulfillWithValue(data) //всё нормально пришли данные
-
-  }
-)
 const initialState: typeItemSliceState = {
   items: [],
   status: 'loading',
