@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { setSort, typeSortPropertyEnum } from '../../redux/slices/filterSlice'
+import { RootState } from "../../redux/store"
 
 type typeSortList = {
   name: string,
@@ -17,9 +18,9 @@ export const sortList: typeSortList[] = [
 ]
 
 function Sort() {
-  const sortRef = useRef<HTMLElement>()
+  const sortRef = useRef<HTMLDivElement>()
   const dispatch = useDispatch()
-  const sort = useSelector((state) => state.filter.sort)
+  const sort = useSelector((state: RootState) => state.filter.sort)
  
   const [open, setOpen] = useState(false)
 
@@ -62,7 +63,8 @@ function Sort() {
     
 
   return (
-    <div ref={setSort} className="sort">
+
+    <div  className="sort">
       <div className="sort__label">
         <svg
           width="10"
