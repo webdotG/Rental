@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import Search from "../search/search"
@@ -8,6 +9,16 @@ function Header() {
   const location = useLocation()
   const { items, totalPrice } = useSelector(selectCart)
   const totalCount = items.reduce((sum, item) => sum + item.count, 0)
+  const isMounted = useRef(false)
+
+  useEffect(() => {
+    if (isMounted.current){
+      const json = JSON.stringify(items)
+      // console.log(json)
+      localStorage.setItem('cart', json)
+    } 
+    isMounted.current = true
+  }, [items])
 
   return (
     <div className="header">
@@ -22,7 +33,8 @@ function Header() {
           </div>
         </Link>
         {/* {location.pathname !== '/Rental/item/' && ( )} */}
-        <Search />
+        {/* <Search /> */}
+        {location.pathname === "/Rental" && <Search />}
         <div className="header__cart">
           {location.pathname !== '/Rental/cart' && (
             <Link to="/Rental/cart" className="button button--cart">

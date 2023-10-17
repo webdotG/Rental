@@ -1,4 +1,5 @@
-
+// import  useWhyDidYouUpdate  from 'ahooks/lib/useWhyDidYouUpdate';
+// useWhyDidYouUpdate('Categories', {value, onChangeCategory})
 type typeCategoriesProps = {
   value: number,
   onChangeCategory: (index: number) => void,
@@ -9,6 +10,8 @@ const CATEGORIES = ['Все', 'Краны', 'Бульдозеры', 'Экско�
 
 function Categories({value, onChangeCategory}:typeCategoriesProps) {
  
+
+
   return (
     <div className="categories">
       <ul>

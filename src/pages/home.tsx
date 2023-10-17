@@ -1,11 +1,11 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useCallback } from 'react'  //, useRef
 import { useSelector} from "react-redux";
-import { useNavigate } from 'react-router-dom'
-import { setCategoryId, setCurrentPage, setFilters } from "../redux/slices/filterSlice"
-import { fetchItems, typeItem, typeSearchItemParams } from '../redux/slices/itemsSlice'
-import qs from 'qs'
+// import { useNavigate } from 'react-router-dom'
+import { setCategoryId, setCurrentPage,} from "../redux/slices/filterSlice" // setFilters 
+import { fetchItems, typeItem, } from '../redux/slices/itemsSlice' // typeSearchItemParams
+// import qs from 'qs'
 import Categories from '../components/categories/categories';
-import  { sortList } from '../components/sort/sort';
+// import  { sortList } from '../components/sort/sort';
 import  Sort from '../components/sort/sort';
 import Skeleton from '../components/skeleton';
 import Pagination from '../components/pagination/pagination';
@@ -14,10 +14,10 @@ import { RootState, useAppDispatch } from '../redux/store';
 
 
 function Home() {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const isSearch = useRef(false)
-  const isMounted = useRef(false)
+  // const isSearch = useRef(false)
+  // const isMounted = useRef(false)
   const categoryId = useSelector((state:RootState) => state.filter.categoryId)
   const sortProperty = useSelector((state:RootState) => state.filter.sort.sortProperty)
   const currentPage = useSelector((state:RootState) => state.filter.currentPage)
@@ -41,6 +41,9 @@ function Home() {
     const search = searchValue ? `&search=${searchValue}` : ''; // &${search}
     dispatch(fetchItems({ sortBy, order, category, currentPage, search }))
   }
+  useEffect(() => {
+    getItems()
+  }, [categoryId, sortProperty, currentPage, searchValue])
 
   // useEffect(() => {
   //   if (isMounted.current) {
@@ -78,9 +81,7 @@ function Home() {
   // }, [])
 
 
-  useEffect(() => {
-    getItems()
-  }, [categoryId, sortProperty, currentPage, searchValue])
+  
 
   const skeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />)
   const itemArray = items.map((obj: typeItem) => <ItemBlock key={obj.id} {...obj} />)
