@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from 'react-router-dom'
-import { addItem, deleteItem, typeCartItem } from '../../redux/slices/cartSlice'
+import { addItem, deleteItem } from '../../redux/slices/cartSlice'
+import { typeCartItem } from "../../redux/@types"
 import style from './itemBlock.module.scss'
 
 const NAMETYPES = ['частное лицо', 'юредическое лицо']

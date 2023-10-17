@@ -2,6 +2,7 @@ import CartItem from "../components/cart_item/cartItem";
 import { useDispatch, useSelector } from "react-redux"
 import { clearItems } from '../redux/slices/cartSlice'
 import CartEmpty from "../components/cart_empty/cartEmpty";
+import { typeItem } from "../redux/@types";
 
 function Cart() {
   
@@ -98,7 +99,7 @@ function Cart() {
           </div>
           <ul className="content__items">
             {
-              items.map((item) => 
+              items.map((item)  => 
               <CartItem {...item} key={item.id} /> )
             }
           </ul>

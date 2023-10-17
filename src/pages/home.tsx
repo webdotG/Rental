@@ -1,8 +1,10 @@
 import { useEffect, useCallback } from 'react'  //, useRef
 import { useSelector} from "react-redux";
+import { RootState, useAppDispatch } from '../redux/store';
 // import { useNavigate } from 'react-router-dom'
 import { setCategoryId, setCurrentPage,} from "../redux/slices/filterSlice" // setFilters 
-import { fetchItems, typeItem, } from '../redux/slices/itemsSlice' // typeSearchItemParams
+import { fetchItems  } from '../redux/slices/itemsSlice' // typeSearchItemParams
+import { typeItem } from '../redux/@types';
 // import qs from 'qs'
 import Categories from '../components/categories/categories';
 // import  { sortList } from '../components/sort/sort';
@@ -10,7 +12,7 @@ import  Sort from '../components/sort/sort';
 import Skeleton from '../components/skeleton';
 import Pagination from '../components/pagination/pagination';
 import ItemBlock from '../components/itemBlock/itemBlock';
-import { RootState, useAppDispatch } from '../redux/store';
+
 
 
 function Home() {

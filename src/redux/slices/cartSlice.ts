@@ -2,21 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 import { getCartFromLS } from '../../utils/getCartFromLoacalStoragr'
 import { calcTotalPrice } from '../../utils/calcTotalPrice'
-
-export type typeCartItem = {
-  id: string,
-  title: string,
-  price: number,
-  imageUrl: string,
-  type: string,
-  size: number,
-  count: number,
-}
-
-interface typeCartSlice {
-  totalPrice: number,
-  items: typeCartItem[],
-}
+import { typeCartItem, typeCartSlice } from '../@types'
 
 const {items, totalPrice} = getCartFromLS() 
 const initialState: typeCartSlice = {

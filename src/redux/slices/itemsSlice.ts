@@ -1,34 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
-import { typeSort } from "./filterSlice";
-
-export type typeItem = {
-  id: string,
-  title: string,
-  price: number,
-  imageUrl: string,
-  sizes: number[],
-  types: number[],
-}
-interface typeItemSliceState {
-  items: typeItem[] ,
-  status: 'loading' | 'success' | 'error'
-}
-export type typeFetchItemsArguments = {
-  sortBy: typeSort,
-  order: string,
-  category: string,
-  currentPage: string,
-}
-
-export type typeSearchItemParams = {
-  sortBy: string, 
-  order: string, 
-  category: string, 
-  currentPage: number,
-  search: string,
-}
+import { typeItem, typeItemSliceState, typeSearchItemParams } from "../@types";
 
 export const fetchItems = createAsyncThunk<typeItem[], typeSearchItemParams >(
   'items/fetchItems',
@@ -46,8 +19,6 @@ export const fetchItems = createAsyncThunk<typeItem[], typeSearchItemParams >(
 
   }
 )
-
-
 const initialState: typeItemSliceState = {
   items: [],
   status: 'loading',

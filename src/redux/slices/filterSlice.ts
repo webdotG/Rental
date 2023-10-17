@@ -1,9 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
-export type typeSort = {
-  name: string,
-  sortProperty:  'rating' | '-rating' | 'title' | '-title' | 'price' | '-price'
-}
+import {typeSort, typeFilterSliceState } from '../@types'
 
 export enum typeSortPropertyEnum {
   RATING_DESC = 'rating',
@@ -12,13 +8,6 @@ export enum typeSortPropertyEnum {
   TITLE_ASC = '-title',
   PRICE_DESC = 'price',
   PRICE_ASC = '-price',
-}
-
-export interface typeFilterSliceState {
-  searchValue: string,
-  categoryId: number,
-  currentPage: number,
-  sort: typeSort,
 }
 
 const initialState: typeFilterSliceState = {
