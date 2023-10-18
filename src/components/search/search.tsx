@@ -1,8 +1,9 @@
 import React, { useRef, useCallback, useState } from 'react'
-import {setSearchValue} from '../../redux/slices/filterSlice'
+import { setSearchValue } from '../../redux/slices/filterSlice'
 import { useDispatch } from 'react-redux'
 import debounce from 'lodash.debounce'
 import styles from './search.module.scss'
+import { count } from 'console'
 
 
 
@@ -11,24 +12,32 @@ function Search() {
   const inputRef = useRef<HTMLInputElement>(null)
   const [inputValue, setInputValue] = useState<string>('')
 
-  const onClickClear = (event: React.MouseEvent<SVGSVGElement>) => { 
+  const onClickClear = (event: React.MouseEvent<SVGSVGElement>) => {
     console.log('onClickClear event : ', event)
     dispatch(setSearchValue(''))
     setInputValue('')
-    if (inputRef.current){     //TS lifeHack
+    if (inputRef.current) {     //TS lifeHack
       inputRef.current.focus()
     }
     // inputRef.current ? focus() //TS lifeHack опциональеая последовательность
-    
-  }
 
+  }
+    // const [items, setItems] = useState('')
+   // const response = axios.get('items', {
+      //   params: {
+      //     search: debounce,
+      //     count: 10
+      //   }
+      // })
+      // setItem(response.data.results)
+      
   const updateSearchValue = useCallback(
     debounce((string) => {
       dispatch(setSearchValue(string))
     }, 500),
     []
   )
-  const onChangeInput = (event:React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
     updateSearchValue(event.target.value)
   }
@@ -58,3 +67,12 @@ function Search() {
 }
 
 export default Search
+
+// <div>
+//   {
+//     items.map(item => {
+//       <li key={item.id}>{item.name}</li>
+//     })
+//   }
+// </div>
+// overfloy-y-scroll

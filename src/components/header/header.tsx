@@ -23,7 +23,7 @@ function Header() {
   return (
     <div className="header">
       <div className="container">
-        <Link to="/Rental">
+        <Link to="/Rental/home">
           <div className="header__logo">
             <img width="38" src='../../../public/logoTest.svg' alt="logo" />
             <div>
