@@ -1,10 +1,10 @@
 import Header from './components/header/header';
-import Home from './pages/home';
-import Cart from './pages/cart';
-import NotFound from './pages/notFound';
+import HomePage from './pages/pageHome';
+import CartPage from './pages/pageCart';
+import NotFound from './pages/pageNotFound';
 import ItemPage from './pages/pageItem';
-import Login from './pages/login';
-import Register from './pages/register'
+// import LoginPage from './pages/pageLogin';
+// import RegisterPage from './pages/pageRegister'
 import { Routes, Route } from "react-router-dom";
 import './scss/app.scss'
 
@@ -18,10 +18,10 @@ function App() {
       <div className="content">
         <div className="container">
           <Routes>
-            <Route path='/Rental/' element={<Register />} />
-            <Route path='/Rental/home' element={<Home />} />
-            <Route path='/Rental/login' element={<Login />} />
-            <Route path='/Rental/cart' element={<Cart />} />
+            {/* <Route path='/Rental/' element={ <LoginPage />} /> */}
+            <Route path='/Rental' element={<HomePage />} />
+            {/* <Route path='/Rental/register' element={<RegisterPage />} /> */}
+            <Route path='/Rental/cart' element={<CartPage />} />
             <Route path='/Rental/item/:id' element={<ItemPage />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
