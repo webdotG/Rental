@@ -35,7 +35,7 @@ function Header() {
           </Link>
         </div>
 
-        {location.pathname !== "/Rental/login" && (
+        {location.pathname !== "/Rental/login" && location.pathname !== "/Rental/register" && (
 
           <div className={style.header_user}>
             <div className={style.header__login}>
