@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { setSort, typeSortPropertyEnum } from '../../redux/slices/filterSlice'
 import { RootState } from "../../redux/store"
+import style from './sort.module.scss'
 
 type typeSortList = {
   name: string,
@@ -64,8 +65,8 @@ function Sort() {
 
   return (
 
-    <div  className="sort">
-      <div className="sort__label">
+    <div  className={style.sort}>
+      <div className={style.sort__label}>
         <svg
           width="10"
           height="6"
@@ -82,8 +83,8 @@ function Sort() {
         <span onClick={() => setOpen(!open)}>{sort.name}</span>
       </div>
       {open ? (
-        <div className="sort__popup">
-          <ul>
+        <div className={style.sort__popup}>
+          <ul className={style.sort__list}>
             {sortList.map((obj, index) => (
               <li
                 key={index}

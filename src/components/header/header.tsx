@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import Search from "../search/search"
 import { selectCart } from "../../redux/slices/cartSlice"
-
+import style from './header.module.scss'
 
 function Header() {
   const location = useLocation()
@@ -37,7 +37,7 @@ function Header() {
         {/* {location.pathname === "/Rental" && <Search />} */}
         <div className="header__cart">
           {location.pathname !== '/Rental/cart' && (
-            <Link to="/Rental/cart" className="button button--cart">
+            <Link to="/Rental/cart" className="button button__cart">
               <span>{totalPrice} ₽</span>
               <div className="button__delimiter"></div>
               <svg

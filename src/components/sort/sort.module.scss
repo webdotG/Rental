@@ -1,0 +1,73 @@
+// @import '../variables';
+
+.sort {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  margin: 0 auto;
+  position: relative;
+
+  &__label {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 8px;
+    }
+
+    b {
+      margin-right: 8px;
+    }
+
+    span {
+      font-size: 14px;
+      border-bottom: 1px dashed black;
+      cursor: pointer;
+    }
+  }
+
+  &__popup {
+    margin-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .sort__list {
+    overflow: hidden;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    li {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 15px;
+      padding-right: 15px;
+      cursor: pointer;
+      border-radius: 8px;
+
+      &.active,
+      &:hover {
+        background: rgba(0, 0, 0, 0.09);
+      }
+
+      &.active {
+        font-weight: bold;
+        color: black;
+      }
+
+    }
+
+  }
+
+}

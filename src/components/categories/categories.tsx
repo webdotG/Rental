@@ -1,5 +1,8 @@
 // import  useWhyDidYouUpdate  from 'ahooks/lib/useWhyDidYouUpdate';
 // useWhyDidYouUpdate('Categories', {value, onChangeCategory})
+
+import style from './categories.module.scss'
+
 type typeCategoriesProps = {
   value: number,
   onChangeCategory: (index: number) => void,
@@ -13,7 +16,7 @@ function Categories({value, onChangeCategory}:typeCategoriesProps) {
 
 
   return (
-    <div className="categories">
+    <div className={style.categories}>
       <ul>
         {CATEGORIES.map((categoryName, index) => (
           <li

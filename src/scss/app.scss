@@ -1,54 +1,95 @@
 @import './variables';
 @import './libs/normalize';
-
 @import './components/all';
 
-body {
-  background-color: $background;
-}
+// body {
+//   background-color: $background;
+// }
 
-.wrapper {
-  width: calc(100vw - 100px);
-  height: 100%;
-  background-color: #fff;
-  margin: 50px auto;
-  border-radius: 10px;
-  max-width: 1400px;
-}
-
-.content {
-  padding: 40px 0;
-
-  &__title {
-    margin: 35px 0;
+@media (min-width: 320px) {
+  
+  .wrapper {
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 auto;
   }
 
-  &__items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-.container {
-  width: $container-width;
-  margin: 0 auto;
-
-  &--cart {
-    max-width: 820px;
-    margin: 90px auto;
-
-    .content__title {
-      margin: 0;
+  .content {
+    padding-top: 20px;
+  
+    
+    &__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
+
+    &__title {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      text-align: center;
+    }
+  
+    
+  
   }
+
 }
+.content__items {
+      // margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+
+
+// .wrapper {
+//   width: calc(100vw - 100px);
+//   height: 100%;
+//   background-color: #fff;
+//   margin: 50px auto;
+//   border-radius: 10px;
+//   max-width: 1400px;
+// }
+
+// .content {
+//   padding: 40px 0;
+
+//   &__title {
+//     margin: 35px 0;
+//   }
+
+//   &__items {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-between;
+//   }
+
+//   &__top {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//   }
+// }
+
+// .container {
+//   width: $container-width;
+//   margin: 0 auto;
+
+//   &--cart {
+//     max-width: 820px;
+//     margin: 90px auto;
+
+//     .content__title {
+//       margin: 0;
+//     }
+//   }
+// }
+
+
 
 .cart {
   &__top {
