@@ -15,7 +15,6 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  color: $black;
 }
 
 a{
@@ -28,11 +27,6 @@ h1 {
   font-size: 48px;
 }
 
-h2 {
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 30px;
-}
 @mixin noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */

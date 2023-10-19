@@ -6,8 +6,7 @@ import ItemPage from './pages/pageItem';
 import LoginPage from './pages/pageLogin';
 import RegisterPage from './pages/pageRegister'
 import { Routes, Route } from "react-router-dom";
-import './scss/app.scss'
-console.log('TEST DEBUG')
+import './scss/_normalize.scss'
 
 
 function App() {

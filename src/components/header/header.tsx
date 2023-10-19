@@ -1,20 +1,23 @@
 import { useEffect, useRef } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { useSelector } from "react-redux/es/hooks/useSelector"
-import { selectCart } from "../../redux/slices/cartSlice"
-import Search from "../search/search"
-import style from './header.module.scss'
 import { UseAuth } from "../../Hook/use-auth"
 import { useAppDispatch } from "../../redux/store"
+import { selectCart } from "../../redux/slices/cartSlice"
 import { removeUser } from '../../redux/slices/authSlice'
+import Search from "../search/search"
+import style from './header.module.scss'
+
+
 
 function Header() {
   const location = useLocation()
-  const { items, totalPrice } = useSelector(selectCart)
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0)
-  const isMounted = useRef(false)
   const dispatch = useAppDispatch()
+  const { items, totalPrice } = useSelector(selectCart)
   const { isAuth, email } = UseAuth()
+  const isMounted = useRef(false)
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0)
+
 
 
   useEffect(() => {
@@ -30,30 +33,28 @@ function Header() {
     <>
       <header className={style.header}>
         <div className={style.logo_wrapper}>
-          <Link to="/Rental/">
-            <div className={style.header__logo}>
+          <div className={style.header__logo}>
+            <Link to="/Rental">
               <img width="90" src='../../../public/logoTest.svg' alt="logo" />
-              <div className={style.header_title}>
-                <h1>Грант аренда</h1>
-                <p>приложение аренды строительной техники</p>
-              </div>
+            </Link>
+            <div className={style.header_title}>
+              <h1>Грант аренда</h1>
+              <p>приложение аренды строительной техники</p>
             </div>
-          </Link>
-        </div>
+          </div>
 
+        </div>
         {
           isAuth
             ? (<div>
-              <h4>{email}, привет</h4>
+              <h4 className={style.auth}>{email}, привет</h4>
               <button
                 onClick={() => dispatch(removeUser())}>
                 разлогиниться</button>)
             </div>)
-            : (<h4>не залогинился</h4>)
+            : (<h4 className={style.auth}>не залогинился</h4>)
         }
-
         {location.pathname !== "/Rental/login" && location.pathname !== "/Rental/register" && (
-
           <div className={style.header_user}>
             <div className={style.header__login}>
               <Link to="/Rental/login" className={style.button__login}>
@@ -105,9 +106,7 @@ function Header() {
             </div>
           </div>
         )}
-
-        {location.pathname === "/Rental/" && <Search />}
-        {/* <Search /> */}
+        {location.pathname === "/Rental" && <Search />}
       </header >
     </>
   )

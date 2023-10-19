@@ -9,7 +9,7 @@
 
   .header__logo {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .header_title{
@@ -35,13 +35,14 @@
     padding-top: 15px;
     padding-bottom: 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .button__login{
     height: 47px;
     width: 50px;
     padding: 5px 10px;
+    margin-right: 25px;
     display: flex;
     justify-content: center;
     background-color: black;
@@ -81,8 +82,11 @@
       margin-left: 14px;
       margin-right: 14px;
     }
+  }
 
-
-
+  .auth{
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 1px;
   }
 }

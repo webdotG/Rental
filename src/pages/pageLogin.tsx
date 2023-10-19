@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import  Login  from '../components/login/login'
+import Login from '../components/login/login'
 import style from '../scss/pages/loginPage.module.scss'
 
 function LoginPage() {
@@ -8,10 +8,8 @@ function LoginPage() {
     <>
       <h1 className={style.title}>Войти</h1>
       <Login />
-      <p>или</p>
-      <p>
-        <Link to='/Rental/register'>зарегестртроваться</Link>
-      </p>
+      <p className={style.text}>или</p>
+      <Link className={style.link_register} to='/Rental/register'>зарегестртроваться</Link>
     </>
   )
 }
