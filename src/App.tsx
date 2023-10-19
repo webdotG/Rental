@@ -3,11 +3,11 @@ import HomePage from './pages/home';
 import CartPage from './pages/cart';
 import NotFound from './pages/notFound';
 import ItemPage from './pages/pageItem';
-// import LoginPage from './pages/pageLogin';
-// import RegisterPage from './pages/pageRegister'
+import LoginPage from './pages/pageLogin';
+import RegisterPage from './pages/pageRegister'
 import { Routes, Route } from "react-router-dom";
 import './scss/app.scss'
-
+console.log('TEST DEBUG')
 
 
 function App() {
@@ -17,9 +17,9 @@ function App() {
       <Header />
       <div className="content">
         <Routes>
-          {/* <Route path='/Rental/' element={ <LoginPage />} /> */}
+          <Route path='/Rental/login' element={ <LoginPage />} />
           <Route path='/Rental' element={<HomePage />} />
-          {/* <Route path='/Rental/register' element={<RegisterPage />} /> */}
+          <Route path='/Rental/register' element={<RegisterPage />} />
           <Route path='/Rental/cart' element={<CartPage />} />
           <Route path='/Rental/item/:id' element={<ItemPage />} />
           <Route path='*' element={<NotFound />} />

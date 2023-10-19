@@ -80,7 +80,7 @@ function Sort() {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setOpen(!open)}>{sort.name}</span>
+        <p onClick={() => setOpen(!open)}>{sort.name}</p>
       </div>
       {open ? (
         <div className={style.sort__popup}>

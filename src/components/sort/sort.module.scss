@@ -12,15 +12,18 @@
 
     svg {
       margin-right: 8px;
+      transform: rotate(90dg);
     }
 
     b {
       margin-right: 8px;
+      text-align: center;
     }
 
-    span {
+    p {
       font-size: 14px;
-      border-bottom: 1px dashed black;
+      text-align: center;
+      border: 1px dashed black;
       cursor: pointer;
     }
   }
@@ -43,7 +46,7 @@
 
   .sort__list {
     overflow: hidden;
-    height: 150px;
+    height: 230px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

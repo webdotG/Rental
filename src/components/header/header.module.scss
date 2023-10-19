@@ -1,10 +1,13 @@
-@media (min-width: 340px) {
-  
-  .header{
+@media (min-width: 320px) {
+
+  .header {
     padding-left: 10px;
     padding-right: 10px;
     width: auto;
   }
 
+  .header_logo {
+    display: flex;
+  }
 
 }

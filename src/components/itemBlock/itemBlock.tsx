@@ -74,7 +74,7 @@ function ItemBlock({ id, title, price, imageUrl, sizes, types }: typeItemBlockPr
             <li
               key={typeId}
               onClick={() => setActiveType(index)}
-              className={activeType === index ? 'active' : ''}>
+              className={activeType === index ? style.active : ''}>
               {NAMETYPES[typeId]}</li>
           ))}
         </ul>
@@ -83,7 +83,7 @@ function ItemBlock({ id, title, price, imageUrl, sizes, types }: typeItemBlockPr
             <li
               key={size}
               onClick={() => setActiveSize(index)}
-              className={activeSize === index ? 'active' : ''}>
+              className={activeSize === index ? style.active : ''}>
               {size} кг.</li>
           ))}
         </ul>
