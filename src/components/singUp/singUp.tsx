@@ -1,7 +1,7 @@
 import { useAppDispatch } from '../../redux/store'
 import Form from '../form/form'
-import { addUser } from '../../redux/slices/authSlice'
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+// import { addUser } from '../../redux/slices/authSlice'
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 
 
