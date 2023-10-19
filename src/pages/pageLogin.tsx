@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
 import  Login  from '../components/login/login'
+import style from '../scss/pages/loginPage.module.scss'
 
 function LoginPage() {
 
   return (
     <>
-      <h1>Войти</h1>
+      <h1 className={style.title}>Войти</h1>
       <Login />
       <p>или</p>
       <p>

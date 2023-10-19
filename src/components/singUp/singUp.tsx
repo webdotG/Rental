@@ -1,34 +1,39 @@
 import { useAppDispatch } from '../../redux/store'
+import { useNavigate } from 'react-router-dom'
 import Form from '../form/form'
-// import { addUser } from '../../redux/slices/authSlice'
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { addUser } from '../../redux/slices/authSlice'
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 
 
 function SingUp() {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
-  // const onRegister = (email, password) => {
-  //   const auth = getAuth();
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then(({ user }) => {
-  //       dispatch(addUser(
-  //         email: user.email,
-  //         id: user.id,
-  //         token: user.accessToken,
-  //       ))
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     });
-  // }
+  const onRegister = (email: string, password: string) => {
+    const auth = getAuth();
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        console.log('TEST CREATE USER FIREBASE DEBUG', user)
+        dispatch(addUser({
+          email: user.email,
+          id: user.uid,
+          token: user.refreshToken,
+        }))
+        navigate('/Rental')
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }
 
 
   return (
     <>
       <Form
         title='зарегестрироваться'
-        // handleClick={onRegister}
+        handleClick={onRegister}
       />
     </>
   )

@@ -4,12 +4,18 @@ import { useSelector } from "react-redux/es/hooks/useSelector"
 import { selectCart } from "../../redux/slices/cartSlice"
 import Search from "../search/search"
 import style from './header.module.scss'
+import { UseAuth } from "../../Hook/use-auth"
+import { useAppDispatch } from "../../redux/store"
+import { removeUser } from '../../redux/slices/authSlice'
 
 function Header() {
   const location = useLocation()
   const { items, totalPrice } = useSelector(selectCart)
   const totalCount = items.reduce((sum, item) => sum + item.count, 0)
   const isMounted = useRef(false)
+  const dispatch = useAppDispatch()
+  const { isAuth, email } = UseAuth()
+
 
   useEffect(() => {
     if (isMounted.current) {
@@ -34,6 +40,17 @@ function Header() {
             </div>
           </Link>
         </div>
+
+        {
+          isAuth
+            ? (<div>
+              <h4>{email}, привет</h4>
+              <button
+                onClick={() => dispatch(removeUser())}>
+                разлогиниться</button>)
+            </div>)
+            : (<h4>не залогинился</h4>)
+        }
 
         {location.pathname !== "/Rental/login" && location.pathname !== "/Rental/register" && (
 

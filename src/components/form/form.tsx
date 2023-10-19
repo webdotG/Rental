@@ -1,12 +1,12 @@
 import { useState } from "react"
 import style from './form.module.scss'
 
-//  type typeFormProps = {
-//   title: string,
-//   handleClick: ,
-//  }
+ type typeFormProps = {
+  title: string,
+  handleClick: (title:string, password: string) => void   ,
+ }
  
-function From ({title, handleClick} ) {
+function From ({title, handleClick}:typeFormProps ) {
 
   const [email, setEmail] =useState('')
   const [password, setPassword] = useState('')
