@@ -2,15 +2,15 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 
 type typeInitialState = {
-  email: null,
-  token: null,
-  id: null ,
+  email:  string
+  token:  string,
+  id: string ,
 }
 
 const initialState = {
-  email: null,
-  token: null,
-  id: null,
+  email: "",
+  token: "" ,
+  id: "",
 }
 
 const  authSlice = createSlice({
@@ -25,9 +25,9 @@ const  authSlice = createSlice({
     },
 
     removeUser(state){
-      state.email = null
-      state.token = null
-      state.id = null
+      state.email = ""
+      state.token = ""
+      state.id = ""
     }
 
   }
