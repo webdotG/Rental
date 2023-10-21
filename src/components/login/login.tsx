@@ -9,12 +9,12 @@ function Login () {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
 
-  const onLogin = (email: string | null, password: string) => {
+  const onLogin = (email: string , password: string) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({user}) => {
         dispatch(addUser({
-          email: user.email,
+          email: user.email as string,
           id: user.uid,
           token: user.refreshToken,
         }))
@@ -22,7 +22,7 @@ function Login () {
       .catch(() => {
         window.alert('нет такого человека')
       });
-      navigate('/Rental')
+      navigate('/Rental/')
   }
 
   return (

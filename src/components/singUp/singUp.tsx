@@ -17,7 +17,7 @@ function SingUp() {
       .then(({ user }) => {
         console.log('TEST CREATE USER FIREBASE DEBUG', user)
         dispatch(addUser({
-          email: user.email,
+          email: user.email as string,
           id: user.uid,
           token: user.refreshToken,
         }))
@@ -25,7 +25,7 @@ function SingUp() {
       .catch((error) => {
         console.log(error)
       });
-      navigate('/Rental')
+      navigate('/Rental/')
   }
 
 
