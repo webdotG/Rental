@@ -94,7 +94,7 @@ function Home() {
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort />
       </div>
-      <h2 className="content__title">{categoryId}</h2>
+      <h2 className="content__title">id категории :  {categoryId}</h2>
       <div className="content__items">
         {/* {
           status === 'error'

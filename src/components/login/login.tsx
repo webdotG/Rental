@@ -9,7 +9,7 @@ function Login () {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
 
-  const onLogin = (email: string, password: string) => {
+  const onLogin = (email: string | null, password: string) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({user}) => {
@@ -19,8 +19,8 @@ function Login () {
           token: user.refreshToken,
         }))
       })
-      .catch((error) => {
-        window.alert('нет такого человека', error)
+      .catch(() => {
+        window.alert('нет такого человека')
       });
       navigate('/Rental')
   }

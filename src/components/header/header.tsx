@@ -100,12 +100,12 @@ function Header() {
         {
           isAuth
             ? (<div>
-              <h4 className={style.auth}>{email} привет</h4>
+              <h4 className={style.auth}>{email}</h4>
               <button
                 onClick={() => dispatch(removeUser())}>
-                разлогиниться</button>)
+                выйти из учётки</button>)
             </div>)
-            : (<h4 className={style.auth}>не залогинился</h4>)
+            : (<h4 className={style.auth}>войти в личный кабинет</h4>)
         }
         {location.pathname === "/Rental" && <Search />}
       </header >
