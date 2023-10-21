@@ -32,7 +32,7 @@ function SingUp() {
   return (
     <>
       <Form
-        title='зарегестрироваться'
+        title='зарегистрироваться'
         handleClick={onRegister}
       />
     </>
