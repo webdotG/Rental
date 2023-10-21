@@ -9,7 +9,7 @@ function LoginPage() {
       <h1 className={style.title}>Войти</h1>
       <Login />
       <p className={style.text}>или</p>
-      <Link className={style.link_register} to='/Rental/register'>зарегестртроваться</Link>
+      <Link className={style.link_register} to='/Rental/register'>зарегистрироваться</Link>
     </>
   )
 }
