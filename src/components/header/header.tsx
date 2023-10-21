@@ -35,7 +35,7 @@ function Header() {
         <div className={style.logo_wrapper}>
           <div className={style.header__logo}>
             <Link to="/Rental">
-              <img width="90" src='../../../public/logoTest.svg' alt="logo" />
+              <img className={style.header__logo_img} src='../../../public/logoTest.svg' alt="logo" />
             </Link>
             <div className={style.header_title}>
               <h1>Грант аренда</h1>
@@ -44,16 +44,7 @@ function Header() {
           </div>
 
         </div>
-        {
-          isAuth
-            ? (<div>
-              <h4 className={style.auth}>{email}, привет</h4>
-              <button
-                onClick={() => dispatch(removeUser())}>
-                разлогиниться</button>)
-            </div>)
-            : (<h4 className={style.auth}>не залогинился</h4>)
-        }
+      
         {location.pathname !== "/Rental/login" && location.pathname !== "/Rental/register" && (
           <div className={style.header_user}>
             <div className={style.header__login}>
@@ -69,13 +60,12 @@ function Header() {
             <div className={style.header__cart}>
               {location.pathname !== '/Rental/cart' && (
                 <Link to="/Rental/cart" className={style.button__cart}>
-                  <span>{totalPrice} ₽</span>
-                  <div className={style.button__cart_delimiter}></div>
+                  <span className={style.button__cart_price}>{totalPrice} ₽</span>
+                  <div className={style.button__cart_count}>
                   <svg
                     width="18"
                     height="18"
                     viewBox="0 0 18 18"
-                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -101,11 +91,22 @@ function Header() {
                     />
                   </svg>
                   <span>{totalCount}</span>
+                  </div>
                 </Link>
               )}
             </div>
           </div>
         )}
+        {
+          isAuth
+            ? (<div>
+              <h4 className={style.auth}>{email} привет</h4>
+              <button
+                onClick={() => dispatch(removeUser())}>
+                разлогиниться</button>)
+            </div>)
+            : (<h4 className={style.auth}>не залогинился</h4>)
+        }
         {location.pathname === "/Rental" && <Search />}
       </header >
     </>

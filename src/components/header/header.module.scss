@@ -12,12 +12,18 @@
     justify-content: center;
   }
 
-  .header_title{
+  .header__logo_img {
+    width: 80px;
+    height: 80px;
+  }
+
+
+  .header_title {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    h1{
+
+    h1 {
       padding-top: 5px;
       padding-bottom: 10px;
       font-size: 20px;
@@ -38,7 +44,7 @@
     justify-content: center;
   }
 
-  .button__login{
+  .button__login {
     height: 47px;
     width: 50px;
     padding: 5px 10px;
@@ -55,7 +61,6 @@
     width: 158px;
     display: flex;
     justify-content: center;
-    background-color: black;
     border-radius: 10px;
     padding: 10px 15px;
     cursor: pointer;
@@ -63,7 +68,7 @@
 
     &,
     span {
-      color: #fff;
+      color: black;
     }
 
     &:hover {
@@ -84,9 +89,51 @@
     }
   }
 
-  .auth{
+  .auth {
     text-align: center;
     font-weight: 400;
     letter-spacing: 1px;
   }
 }
+
+// ========================================= 680 px =====================================================
+
+
+@media (min-width: 680px) {
+
+  .header {
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .header__logo {
+    justify-content: space-between;
+  }
+
+  .header__logo_img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .auth {
+    padding-left: 40px;
+  margin-right: auto;
+  width: 222px;
+  }
+
+  .header_user {
+    justify-content: space-between;
+  }
+
+  .header__login{
+    padding-left: 60px;
+  }
+
+  .button__cart_price,
+  .button__cart_count{
+    margin-right: 20px;
+  }
+
+}
+

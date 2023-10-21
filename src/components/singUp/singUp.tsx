@@ -21,11 +21,11 @@ function SingUp() {
           id: user.uid,
           token: user.refreshToken,
         }))
-        navigate('/Rental')
-      })
+      }) 
       .catch((error) => {
         console.log(error)
       });
+      navigate('/Rental')
   }
 
 
