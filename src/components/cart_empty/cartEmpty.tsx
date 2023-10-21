@@ -5,7 +5,7 @@ function CartEmpty() {
 
   return (
     <div className={style.root}>
-      <h1>Карзина пуста</h1>
+      <h1>Корзина пуста</h1>
       <h2>вы не выбрали ни одного товра</h2>
     <br />
     <br />

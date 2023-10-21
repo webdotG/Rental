@@ -18,11 +18,12 @@ function Login () {
           id: user.uid,
           token: user.refreshToken,
         }))
+        // navigate('/Rental/)
+        console.log (navigate)
       })
       .catch(() => {
         window.alert('нет такого человека')
       });
-      navigate('/Rental')
   }
 
   return (
