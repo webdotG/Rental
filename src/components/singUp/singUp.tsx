@@ -25,7 +25,7 @@ function SingUp() {
       .catch((error) => {
         console.log(error)
       });
-      navigate('/Rental/')
+      navigate('/Rental')
   }
 
 

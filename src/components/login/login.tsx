@@ -22,7 +22,7 @@ function Login () {
       .catch(() => {
         window.alert('нет такого человека')
       });
-      navigate('/Rental/')
+      navigate('/Rental')
   }
 
   return (
