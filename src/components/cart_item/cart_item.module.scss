@@ -8,13 +8,13 @@
     padding-top: 10px;
     padding-bottom: 10px;
     display: flex;
+    justify-content: space-around;
   }
 
   .cart__item_img {
     display: inline-block;
     width: 100px;
     height: 100px;
-    margin: 0 auto;
     text-align: center;
     border: 1px solid black;
   }
@@ -47,7 +47,12 @@
 
   .cart__item_count_minus,
   .cart__item_count_plus{
-    padding: 2px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
     border-radius: 4px;
   }
 
@@ -63,6 +68,9 @@
   .cart__item_remove{
     padding: 2px 3px;
     font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    letter-spacing: 1px;
   }
 
 
