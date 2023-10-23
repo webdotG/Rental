@@ -62,9 +62,11 @@ function Header() {
                   ? (<div>
                     <Link className={style.personal_office} 
                     to='/Rental/personaloffice'>
+                   
+                   {location.pathname !== '/Rental/personaloffice' &&  
                     <h4 className={style.auth__active}>{email}
                     <br/>перейти в кабинет</h4>
-                    
+                   }
                     <button className={style.auth__active_button}
                       onClick={() => dispatch(removeUser())}>
                       выйти</button>
