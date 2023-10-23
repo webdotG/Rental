@@ -34,7 +34,8 @@ function Header() {
       <header className={style.header}>
         <div className={style.logo_wrapper}>
           <div className={style.header__logo}>
-            <Link to="/Rental">
+            <Link className={style.header__logo_link} 
+            to="/Rental">
               <img className={style.header__logo_img} src='../../../public/logoTest.svg' alt="logo" />
             </Link>
             <div className={style.header_title}>
