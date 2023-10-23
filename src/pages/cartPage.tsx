@@ -89,24 +89,7 @@ function Cart() {
             </div>
             <div className={style.cart__bottom_buttons}>
               <Link className={style.cart__bottom_link_main}
-                to="/Rental"
-              >
-                {/* <svg
-                  width="8"
-                  height="14"
-                  viewBox="0 0 8 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 13L1 6.93015L6.86175 1"
-                    stroke="black"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg> */}
-                На главную
+                to="/Rental">На главную
               </Link>
               <button className={style.pay_btn}>
                 <span>Оплатить</span>
