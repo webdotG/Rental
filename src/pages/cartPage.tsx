@@ -122,7 +122,6 @@ function Cart() {
             <div className={style.cart__bottom_buttons}>
               <Link className={style.cart__bottom_link_main}
                 to="/Rental"
-                className="style.go-back-btn"
               >
                 <svg
                   width="8"
