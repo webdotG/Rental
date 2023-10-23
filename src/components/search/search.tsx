@@ -52,7 +52,7 @@ function Search() {
         value={inputValue}
         onChange={onChangeInput}
         className={styles.input}
-        placeholder="поиск" />
+        placeholder="жду привзяку запроса на бэк" />
       {inputValue && (
         <svg
           onClick={onClickClear}
