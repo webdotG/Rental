@@ -6,8 +6,8 @@ import { typeCartItem } from "../../redux/@types"
 import { RootState } from "../../redux/store"
 import style from './itemBlock.module.scss'
 
-const NAMETYPES = ['частное', 'юридическое']
-const SIZEVALUES = [100, 500, 1000]
+const NAMETYPES = ['самовывоз', 'доставка']
+const SIZEVALUES = [1, 6, 12, 18, 24]
 
 type typeItemBlockProps = {
   id: string,
@@ -78,13 +78,14 @@ function ItemBlock({ id, title, price, imageUrl, sizes, types }: typeItemBlockPr
               {NAMETYPES[typeId]}</li>
           ))}
         </ul>
+        <button className={style.delivery_link}>зона работ на карте</button>
         <ul className={style.item_block__list_size}>
           {sizes.map((size, index) => (
             <li
               key={size}
               onClick={() => setActiveSize(index)}
               className={activeSize === index ? style.active : ''}>
-              {size} кг.</li>
+              {size}/</li>
           ))}
         </ul>
       </div>
