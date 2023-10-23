@@ -56,6 +56,17 @@ function Header() {
                   </g>
                 </svg>
               </Link>
+              {
+          isAuth
+            ? (<div>
+              <h4 className={style.auth__active}>{email}</h4>
+              <button className={style.auth__active_button}
+                onClick={() => dispatch(removeUser())}>
+                выйти</button>
+            </div>)
+            : (<h4 className={style.auth}>войти</h4>)
+        }
+            
             </div>
             <div className={style.header__cart}>
               {location.pathname !== '/Rental/cart' && (
@@ -97,16 +108,7 @@ function Header() {
             </div>
           </div>
         )}
-        {
-          isAuth
-            ? (<div>
-              <h4 className={style.auth}>{email}</h4>
-              <button
-                onClick={() => dispatch(removeUser())}>
-                выйти из учётки</button>)
-            </div>)
-            : (<h4 className={style.auth}>войти в личный кабинет</h4>)
-        }
+        
         {location.pathname === "/Rental" && <Search />}
       </header >
     </>

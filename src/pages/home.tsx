@@ -12,6 +12,7 @@ import  Sort from '../components/sort/sort';
 import Skeleton from '../components/skeleton';
 import Pagination from '../components/pagination/pagination';
 import ItemBlock from '../components/itemBlock/itemBlock';
+import style from '../scss/pages//homePage.module.scss'
 
 
 
@@ -94,8 +95,8 @@ function Home() {
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort />
       </div>
-      <h2 className="content__title">id категории :  {categoryId}</h2>
-      <div className="content__items">
+      <h2 className={style.content__title}>id категории :  {categoryId}</h2>
+      <div className={style.some}>
         {/* {
           status === 'error'
             ? (<div><h1>проблема с сервером</h1><p>скоро всё починим</p></div>)
