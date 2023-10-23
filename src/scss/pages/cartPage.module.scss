@@ -1,0 +1,29 @@
+@media (min-width: 320px) {
+
+  .cart__bottom_details {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      text-align: center;
+      font-size: 21p;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+  }
+
+  .cart__bottom_buttons {
+    padding-left: 25px;
+    padding-right: 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart__bottom_link_main {
+    padding-left: 15px;
+  }
+
+
+}
