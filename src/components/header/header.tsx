@@ -122,7 +122,7 @@ function Header() {
           </div>
 
         )}
-        {location.pathname === "/Rental" && <Search />}
+        { location.pathname === '/Rental' && <Search />}
       </header >
     </>
   )
