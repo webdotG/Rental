@@ -55,23 +55,47 @@
     position: relative;
   }
 
+  .personal_office {
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+
+  }
+
   .auth {
-    font-weight: 400;
+    border: none;
+    font-size: 16px;
+    font-weight: 200;
     letter-spacing: 1px;
-    position: absolute;
-    left: 2;
-    bottom: -22;
+    padding-left: 2px;
   }
 
   .auth__active {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-weight: 400;
+    padding: 10px;
+    font-weight: 200;
     letter-spacing: 1px;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
   }
 
   .auth__active_button {
-    padding: 2px 5px;
+    display: flex;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: white;
+    border: none;
+    font-size: 18px;
+
+    &:hover {
+      color: white;
+      background-color: black;
+      border-radius: 8px;
+    }
   }
 
   .button__login {
@@ -87,6 +111,8 @@
     border: 1px solid transparent;
 
   }
+
+
 
   .header__cart {
     height: 45px;
