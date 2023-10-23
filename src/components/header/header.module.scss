@@ -85,6 +85,7 @@
     border-radius: 10px;
     cursor: pointer;
     border: 1px solid transparent;
+
   }
 
   .header__cart {
@@ -93,7 +94,7 @@
     padding-left: 2px;
     padding-right: 2px;
     display: flex;
-    border-radius: 5px;
+    border-radius: 10px;
 
     &:hover {
       background-color: black;
@@ -112,28 +113,6 @@
     cursor: pointer;
     border: 1px solid transparent;
     background-color: white;
-
-    // &,
-    // span {
-    //   color: black;
-    // }
-
-    // &:hover {
-    //   background-color: darken(white, 70%);
-    // }
-
-    // &:active {
-    //   background-color: darken(white, 70%);
-    // }
-
-
-    // &_delimiter {
-    //   width: 1px;
-    //   height: 25px;
-    //   background-color: rgba(255, 255, 255, 0.25);
-    //   margin-left: 14px;
-    //   margin-right: 14px;
-    // }
   }
 
 
