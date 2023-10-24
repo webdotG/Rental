@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import style from '../scss/pages/itemPage.module.scss'
 // `https://651f2c9444a3a8aa47697fdb.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}`//&${search}
 
 
@@ -30,10 +31,22 @@ function ItemPage() {
     return 'ЗАГРУЗКА...'
   }return (
     <>
-      <h1>ITEMPAGE ID : {id}</h1>
-      <img src={item.imageUrl} />
-      <h2>{item.title}</h2>
-      <h3>Цена :{item.price}</h3>
+      <h1 className={style.id_title} >ITEMPAGE ID : {id}</h1>
+      <img className={style.item_page} src={item.imageUrl} />
+      <h2 className={style.item_title} >{item.title}</h2>
+      <h3 className={style.item_price} >Цена от :{item.price}</h3>
+      <ul className={style.item_agent_ifo}>
+        <li className={style.item_agetn_info_img}>logo firm</li>
+        <li className={style.item_agetn_info_name}>name firm</li>
+        <li className={style.item_agetn_info_rating}>rating firm</li>
+      </ul>
+      <div className={style.about_price_block}>
+        <p>about price block info ???</p>
+      </div>
+      <div className={style.item_text_wrapper}>
+        <h4>item title</h4>
+        <p>some text about item</p>
+      </div>
     </>
   )
 }
