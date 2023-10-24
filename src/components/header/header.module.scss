@@ -71,6 +71,7 @@
 
   .auth__active {
     padding: 10px;
+    margin-left: -12px;
     font-weight: 200;
     letter-spacing: 1px;
     border-radius: 6px;
@@ -124,7 +125,7 @@
     padding-right: 2px;
     display: flex;
     border-radius: 10px;
-
+border-bottom: 28px solid black;
     &:hover {
       background-color: black;
     }
