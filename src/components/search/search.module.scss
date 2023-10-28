@@ -1,3 +1,5 @@
+@import '../../scss/variables/variables.scss';
+
 @media (min-width:320px) {
 	
 .search {
@@ -12,14 +14,12 @@
 	width: 250px;
 	padding: 6px 10px;
 	padding-left: 40px;
-	border: 2px solid rgba($color: #000000, $alpha: 0.2);
+	border: 3px solid $black;
 	border-radius: 8px;
 	font-size: 18px;
 	transition: all 0.1s ease-in-out;
-
-	&:focus {
-		border: 2px solid rgba($color: #000000, $alpha: 0.6);
-	}
+	background-color: $gold;
+	
 }
 .icon {
 	width: 21px;
@@ -36,7 +36,7 @@
 	opacity: 0.4;
 	position: absolute;
 	right: 13px;
-	top: 14px;
+	top: 24px;
 	cursor: pointer;
 
 	&:hover {
