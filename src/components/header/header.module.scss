@@ -106,8 +106,8 @@
     font-size: 18px;
 
     &:hover {
-      color: white;
-      background-color: black;
+      color: $white;
+      background-color: $black;
       border-radius: 8px;
     }
   }
@@ -118,10 +118,10 @@
     padding: 5px 10px;
     display: flex;
     justify-content: center;
-    background-color: black;
+    background-color: $gold;
     border-radius: 10px;
     cursor: pointer;
-    border: 1px solid transparent;
+    border: 2px solid $black;
 
   }
 

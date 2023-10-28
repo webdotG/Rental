@@ -14,8 +14,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid $gold;
     border-radius: 8px;
+    background-color: $white;
 
     &__image {
       height: 200px;
@@ -49,8 +49,9 @@
       margin-bottom: 15px;
       display: flex;
       flex-direction: column;
-      background-color: #f3f3f3;
+      background-color: $gold;
       border-radius: 10px;
+      border: 2px solid $black;
     }
 
     .item_block__list_type,
@@ -70,15 +71,14 @@
         font-size: 16px;
 
         &:hover {
-          background: black;
-          color: white;
+          background: $black;
+          color: $white;
           border-radius: 6px;
         }
 
-        // @include noselect();
         &.active {
-          background: black;
-          color: white;
+          background: $black;
+          color: $white;
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
           border-radius: 5px;
           cursor: auto;
@@ -92,16 +92,17 @@
       margin-bottom: 5px;
       padding: 5px 10px;
       border-radius: 6px;
-      background-color: white;
-      color: black;
+      background-color: $white;
+      color: $black;
       border: none;
       cursor: pointer;
       font-weight: 500;
       font-size: 16px;
+      border: 2px solid $black;
 
       &:hover {
-        background: black;
-        color: white;
+        background: $black;
+        color: $white;
 
       }
     }
@@ -120,16 +121,17 @@
     padding: 10px;
     display: flex;
     align-items: center;
-    background-color: black;
+    background-color: $gold;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color duration ease-in-out, border-color duration ease-in-out;
-    border: 1px solid transparent;
+    border: 2px solid $black;
   }
 
   .item_block__button_text {
     margin-left: 5px;
-    color: white;
+    color: $black;
+    font-size: 15px;
   }
 
   .item_block__button_count {
@@ -137,8 +139,8 @@
     padding-left: 4px;
     padding-right: 6px;
 
-    color: black;
-    background-color: white;
+    color: $white;
+    background-color: $black;
     border-radius: 50%;
     font-weight: 500;
     font-size: 14px;
@@ -152,148 +154,16 @@
     display: flex;
     justify-content: center;
     font-size: 14px;
-    border: 1px solid black;
+    border: 1px solid $black;
     cursor: pointer;
     border-radius: 8px;
+    background-color: $gold;
+    font-size: 16px;
+    border: 2px solid $black;
 
     &:hover {
       color: white;
-      background-color: black;
+      background-color: $black;
     }
   }
 }
-
-
-
-
-
-// &.button {
-//   display: inline-block;
-//   background-color: black;
-//   border-radius: 10px;
-//   padding: 10px 20px;
-//   min-width: 100px;
-//   text-align: center;
-//   cursor: pointer;
-//   transition: background-color duration ease-in-out, border-color duration ease-in-out;
-//   border: 1px solid transparent;
-//   // @include noselect();
-
-//   &,
-//   span {
-//     color: #fff;
-//   }
-
-//   i,
-//   span,
-//   path,
-//   svg {
-//     transition: all duration ease-in-out;
-//   }
-
-//   &:hover {
-//     background-color: darken(black, 8%);
-//   }
-
-//   &:active {
-//     background-color: darken(black, 12%);
-//     transform: translateY(1px);
-//   }
-
-//   &__circle {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     width: 32px;
-//     height: 32px;
-//     min-width: 32px;
-//     padding: 0;
-//     border-width: 2px;
-//   }
-
-//   &__black {
-//     background-color: black;
-
-//     &:hover,
-//     &:active {
-//       background-color: lighten($color: black, $amount: 10);
-//     }
-//   }
-
-//   &__outline {
-//     background-color: #fff;
-//     border-color: black;
-
-//     &,
-//     span {
-//       color: black;
-//     }
-
-//     svg {
-//       path {
-//         fill: black;
-//       }
-//     }
-
-//     &:hover {
-//       background-color: black;
-
-//       &,
-//       span {
-//         color: #fff;
-//       }
-
-//       svg {
-//         path {
-//           fill: #fff;
-//         }
-//       }
-//     }
-
-//     &:active {
-//       background-color: darken(black, 8%);
-//     }
-//   }
-
-//   &__delimiter {
-//     width: 1px;
-//     height: 25px;
-//     background-color: rgba(255, 255, 255, 0.25);
-//     margin-left: 14px;
-//     margin-right: 14px;
-//   }
-
-//   &--add {
-//     svg {
-//       margin-right: 2px;
-//     }
-
-//     span {
-//       font-weight: 600;
-//       font-size: 16px;
-//     }
-
-//     &:hover {
-//       i {
-//         background-color: #fff;
-//         color: black;
-//       }
-//     }
-
-//     i {
-//       display: inline-block;
-//       border-radius: 30px;
-//       background-color: black;
-//       color: #fff;
-//       font-weight: 600;
-//       width: 22px;
-//       height: 22px;
-//       font-style: normal;
-//       font-size: 13px;
-//       line-height: 22px;
-//       position: relative;
-//       top: -1px;
-//       left: 3px;
-//     }
-//   }
-// }
