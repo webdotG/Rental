@@ -77,7 +77,8 @@
     padding-bottom: 5px;
     font-size: 16px;
     text-transform: uppercase;
-    border-bottom: 1px solid black;
+    color: $gold;
+    border-bottom: 2px solid $gold;
     cursor: pointer;
   }
 
@@ -90,7 +91,15 @@
     border: none;
     border-radius: 8px;
     text-transform: uppercase;
-  }
+    background-color: $gold;
+    color: $black;
+
+    &:hover{
+      background-color: $black;
+      border: 2px solid $gold;
+      color: $gold;
+    }
+    }
 
 
  
