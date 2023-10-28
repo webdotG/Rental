@@ -1,8 +1,25 @@
+@import '../variables/variables.scss';
+
 @media (min-width: 320px) {
+
+  .cart{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: $black;
+  }
+
+  .cart__top{
+    width: 300px;
+    margin: 0 auto;
+    border: 2px solid $gold;
+    border-radius: 10px;
+  }
 
   .cart_content__title{
     text-align: center;
+    margin-top: 10px;
     margin-bottom: 15px;
+    color: $white;
   }
 
   .cart__clear{
@@ -15,10 +32,23 @@
     align-items: center;
     justify-content: center;
     font-size: 17px;
-    background-color: black;
-    color: white;
+    background-color: $gold;
+    color: $black;
     border: none;
     border-radius: 8px;
+
+    &:hover{
+      background-color: $black;
+      color: $white;
+      border: 2px solid $gold;
+
+      svg{
+        path{
+          stroke:$white;
+        }
+      }
+    }
+
   }
   .cart__bottom_details {
     display: flex;
