@@ -17,7 +17,7 @@ function Categories({value, onChangeCategory}:typeCategoriesProps) {
 
   return (
     <div className={style.categories}>
-      <ul>
+      <ul className={style.categories_list}>
         {CATEGORIES.map((categoryName, index) => (
           <li
             key={index}

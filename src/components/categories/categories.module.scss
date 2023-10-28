@@ -1,36 +1,42 @@
+@import '../../scss/variables/variables.scss';
+
 @media (min-width: 320px) {
 
   .categories {
 
-    ul {
+    background-color: $black;
+
+    .categories_list{
+      padding-top: 15px;
+      padding-bottom: 15px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
 
       li {
-        background-color: #f9f9f9;
+        background-color: $gold;
         padding: 7px 10px;
         margin-top: 10px;
         margin-right: 10px;
         border-radius: 6px;
-        border: 1px solid black;
+        border: 1px solid $black;
         cursor: pointer;
         transition: background-color 0.1s ease-in-out;
         // @include noselect();
 
         &:hover {
-          background-color: black;
-          color: white;
+          background-color:$black;
+          color: $white;
         }
 
         &:active {
-          background-color: black;
-          color: white;
+          background-color:$black;
+          color:$white;
         }
 
         &.active {
-          background-color: #282828;
-          color: #fff;
+          background-color:$black;
+          color: $white;
         }
       }
     }

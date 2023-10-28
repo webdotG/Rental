@@ -1,3 +1,5 @@
+@import '../../scss/variables/variables.scss';
+
 @media (min-width:320px) {
 
   .item_block {
@@ -8,12 +10,11 @@
     padding-right: 15px;
     margin: 0 auto;
     margin-bottom: 20px;
-    margin-top: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid $gold;
     border-radius: 8px;
 
     &__image {
