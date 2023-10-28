@@ -1,10 +1,11 @@
+// import { UseAuth } from "../Hook/use-auth"
 
-function PersonalOfficePage () {
+function PersonalOfficePage() {
+  // const isAuth = UseAuth()
 
-  return(
-    <div>
-      <h1>страница личного кабинета</h1>
-    </div>
+  return (
+        <h1> страница личного кабинета</h1>
+    
   )
 }
 
