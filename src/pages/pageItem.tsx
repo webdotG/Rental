@@ -18,7 +18,7 @@ function ItemPage() {
   useEffect(() => {
     async function fetchItemId() {
       try {
-        const { data } = await axios.get('https://651f2c9444a3a8aa47697fdb.mockapi.io/items/'+id)
+        const { data } = await axios.get('https://651f2c9444a3a8aa47697fdb.mockapi.io/items/' + id)
         setItem(data)
       } catch (error) {
         alert('не смог получить выбранный товар')
@@ -29,10 +29,10 @@ function ItemPage() {
 
   if (!item) {
     return 'ЗАГРУЗКА...'
-  }return (
-    <>
+  } return (
+    <div className={style.item_page_wrapper}>
       <h1 className={style.id_title} >ITEMPAGE ID : {id}</h1>
-      <img className={style.item_page} src={item.imageUrl} />
+      <img className={style.item_img} src={item.imageUrl} />
       <h2 className={style.item_title} >{item.title}</h2>
       <h3 className={style.item_price} >Цена от :{item.price}</h3>
       <ul className={style.item_agent_ifo}>
@@ -47,7 +47,7 @@ function ItemPage() {
         <h4>item title</h4>
         <p>some text about item</p>
       </div>
-    </>
+    </div>
   )
 }
 
