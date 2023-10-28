@@ -2,19 +2,25 @@
 
 @media (min-width:320px) {
 	
+	.serach_wrapper{
+		width: 100%;
+		background-color: $black;
+	}
+
 .search {
 	width: 250px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin: 0 auto;
 	position: relative;
+	
 }
 
 .input {
 	width: 250px;
 	padding: 6px 10px;
 	padding-left: 40px;
-	border: 2px solid $black;
+	border: 2px solid $gold;
 	border-radius: 8px;
 	font-size: 18px;
 	transition: all 0.1s ease-in-out;

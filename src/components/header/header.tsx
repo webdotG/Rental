@@ -5,7 +5,7 @@ import { UseAuth } from "../../Hook/use-auth"
 import { useAppDispatch } from "../../redux/store"
 import { selectCart } from "../../redux/slices/cartSlice"
 import { removeUser } from '../../redux/slices/authSlice'
-import Search from "../search/search"
+// import Search from "../search/search"
 import style from './header.module.scss'
 
 
@@ -125,7 +125,7 @@ function Header() {
           </div>
 
         )}
-        { location.pathname === '/Rental/' && <Search />}
+        {/* { location.pathname === '/Rental/' && <Search />} */}
       </header >
     </div>
   )

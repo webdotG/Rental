@@ -12,6 +12,7 @@ import Sort from '../components/sort/sort';
 import Skeleton from '../components/skeleton';
 import Pagination from '../components/pagination/pagination';
 import ItemBlock from '../components/itemBlock/itemBlock';
+import Search from "../components/search/search"
 import style from '../scss/pages//homePage.module.scss'
 
 
@@ -92,6 +93,7 @@ function Home() {
   return (
     <>
       <div className="content__top">
+        <Search/>
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort />
       </div>
