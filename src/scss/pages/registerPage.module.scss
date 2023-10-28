@@ -1,15 +1,26 @@
+@import '../variables/variables.scss';
+
 @media (min-width: 320px) {
 
+  .register_page_wrapper{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: $black;
+  }
+
   .title {
-    padding-top: 20px;
+    width: 300px;
+    margin: 0 auto;
     text-align: center;
-    font-size: 28px;
+    background-color: $gold;
+    border-radius: 10px;
   }
 
   .text {
     padding-top: 5px;
     font-size: 14px;
     text-align: center;
+    color: $gold;
   }
 
   .link_login {
@@ -19,7 +30,8 @@
     margin: 0 auto;
     display: block;
     font-size: 21px;
-    border-bottom: 1px solid black;
+    color: $gold;
+    border-bottom: 1px solid $gold;;
   }
 
 }
