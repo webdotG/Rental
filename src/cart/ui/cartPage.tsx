@@ -74,9 +74,9 @@ function Cart() {
                   id={item.id}
                   title={item.title}
                   price={item.price}
+                  deliveryType={item.deliveryType}
                   count={item.count}
                   image={item.imageUrl}
-                  type={item.type}
                   sizes={item.size}
                 />)
             }

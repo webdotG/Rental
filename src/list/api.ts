@@ -6,9 +6,10 @@ export const fetchItems = createAsyncThunk<typeItem[], typeSearchItemParams >(
   'items/fetchItems',
     async (params, thunkApi) => {
     const { sortBy, order, category, currentPage, search } = params
-    const { data } = await axios.get<typeItem[]>(
-      `https://651f2c9444a3a8aa47697fdb.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}&${search}`//&${search}
-    )
+    const data = {};
+    // const { data } = await axios.get<typeItem[]>(
+    //   `https://651f2c9444a3a8aa47697fdb.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}&${search}`//&${search}
+    // )
     //  return data 
     // console.log(thunkApi.getState())
     if (data.length === 0) {

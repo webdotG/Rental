@@ -6,7 +6,7 @@ import { typeCartItem } from "../../../cart/types";
 import { RootState } from "../../../shared-kernel/store";
 import style from './itemBlock.module.scss'
 
-const NAMETYPES = ['самовывоз', 'доставка']
+const NAMETYPES: ['самовывоз', 'доставка'] = ['самовывоз', 'доставка']
 const SIZEVALUES = [1, 6, 12, 18, 24]
 
 type typeItemBlockProps = {
@@ -19,27 +19,22 @@ type typeItemBlockProps = {
   fields: {name: string, value: string}[],
 }
 
-function ItemBlock({ id, modelName, price, imageUrl, fields }: typeItemBlockProps) {
+function ItemBlock({ id, modelName, price, imageUrl }: typeItemBlockProps) {
+  const [deliveryType, setDeliveryType] = useState<'самовывоз' | 'доставка'>('самовывоз');
 
-  const [activeType, setActiveType] = useState(0)
+  const [activeType] = useState(0)
   const [activeSize] = useState(0)
 
   const dispatch = useDispatch()
   const cartItem = useSelector((state: RootState) => state.cart.items.find((obj) => obj.id === id))
   const addedCount = cartItem ? cartItem.count : 0
-  // const cartItem = useSelector((state) => state.cart.items.find((obj) =>{
-  //       obj.id === id &&
-  //       obj.type === NAMETYPES[activeType] &&
-  //       obj.size === SIZEVALUES[activeSize]
-  //     })
-  // );
-  // const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickAdd = () => {
     const item: typeCartItem = {
       id,
       title: modelName,
       price,
+      deliveryType,
       type: NAMETYPES[activeType],
       size: SIZEVALUES[activeSize],
       count: 0,
@@ -53,6 +48,7 @@ function ItemBlock({ id, modelName, price, imageUrl, fields }: typeItemBlockProp
       id,
       title: modelName,
       price,
+      deliveryType,
       type: NAMETYPES[activeType],
       size: SIZEVALUES[activeSize],
       count: 0,
@@ -68,12 +64,12 @@ function ItemBlock({ id, modelName, price, imageUrl, fields }: typeItemBlockProp
       <div className={style.item_block__price}>от {price} ₽</div>
       <div className={style.item_block__selector}>
         <ul className={style.item_block__list_type}>
-          {fields.map(({ name }, index) =>  {
+          {NAMETYPES.map((name) =>  {
             return (
               <li
                 key={name}
-                onClick={() => setActiveType(index)}
-                className={activeType === index ? style.active : ''}>
+                onClick={() => setDeliveryType(name)}
+                className={deliveryType === name ? style.active : ''}>
                 {name}</li>
             )
           })}

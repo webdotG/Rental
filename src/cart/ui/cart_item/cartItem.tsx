@@ -11,11 +11,11 @@ type typeCartItemProps = {
   price: number,
   count: number,
   image: string,
-  type: string,
+  deliveryType: 'самовывоз' | 'доставка',
   sizes: number,
 }
 
-function CartItem({ id, title, price, count, image, type, sizes }: typeCartItemProps) {
+function CartItem({ id, title, price, count, image, deliveryType, sizes }: typeCartItemProps) {
   const dispatch = useDispatch()
 
   const onClickPlus = () => {
@@ -37,7 +37,7 @@ function CartItem({ id, title, price, count, image, type, sizes }: typeCartItemP
       </div>
       <div className={style.cart__item_info}>
         <h3>{title}</h3>
-        <p>{type}</p>
+        <p>{deliveryType}</p>
         <p>{sizes}</p>
       </div>
       <div className={style.cat_item_price_block}>
