@@ -6,7 +6,7 @@ import { typeCartItem } from "../../types"
 import style from './cart_item.module.scss'
 
 type typeCartItemProps = {
-  id: string,
+  id: number,
   title: string,
   price: number,
   count: number,

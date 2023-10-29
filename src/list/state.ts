@@ -46,13 +46,12 @@ const itemsSlice = createSlice({
       const newItems = state.filteredItems.length ? state.filteredItems : state.items;
       const field = action.payload.sortPropery === 'title' ? 'modelName' : 'price';
 
-      console.log('[FIE]', field);
-      state.filteredItems = newItems.sort((a, b) => {
+      const sortedArray = newItems.sort((a, b) => {
         let nameA = a[field]; // Convert names to uppercase for case-insensitive sorting
         let nameB = b[field];
         if (field === 'modelName') {
-          nameA = a[field].toUpperCase(); // Convert names to uppercase for case-insensitive sorting
-          nameB = b[field].toUpperCase();
+          nameA = a[field]?.toUpperCase(); // Convert names to uppercase for case-insensitive sorting
+          nameB = b[field]?.toUpperCase();
         }
 
         if (action.payload.name.endsWith('возрастанию')) {
@@ -72,9 +71,9 @@ const itemsSlice = createSlice({
             return 0; // names are equal
           }
         }
-
       });
 
+      state.filteredItems = sortedArray;
     }
   },
   extraReducers: (builder) => {

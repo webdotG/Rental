@@ -6,12 +6,15 @@ export type typeSearchItemParams = {
   search: string,
 }
 export type typeItem = {
-  id: string,
-  title: string,
+  id: number,
+  title?: string,
+  modelName: string,
+  categoryId: number,
+  fields: {name: string, value: string}[],
   price: number,
   imageUrl: string,
-  sizes: number[],
-  types: number[],
+  sizes?: number[],
+  types?: number[],
 }
 export interface typeItemSliceState {
   items: typeItem[] ,

@@ -10,18 +10,19 @@ const NAMETYPES = ['самовывоз', 'доставка']
 const SIZEVALUES = [1, 6, 12, 18, 24]
 
 type typeItemBlockProps = {
-  id: string,
-  title: string,
+  id: number,
+  title?: string,
   price: number,
   imageUrl: string,
-  sizes: number[],
+  sizes?: number[],
+  modelName: string,
   fields: {name: string, value: string}[],
 }
 
-function ItemBlock({ id, modelName, price, imageUrl, sizes, fields }: typeItemBlockProps) {
+function ItemBlock({ id, modelName, price, imageUrl, fields }: typeItemBlockProps) {
 
   const [activeType, setActiveType] = useState(0)
-  const [activeSize, setActiveSize] = useState(0)
+  const [activeSize] = useState(0)
 
   const dispatch = useDispatch()
   const cartItem = useSelector((state: RootState) => state.cart.items.find((obj) => obj.id === id))
@@ -67,7 +68,7 @@ function ItemBlock({ id, modelName, price, imageUrl, sizes, fields }: typeItemBl
       <div className={style.item_block__price}>от {price} ₽</div>
       <div className={style.item_block__selector}>
         <ul className={style.item_block__list_type}>
-          {fields.map(({ name, title }, index) =>  {
+          {fields.map(({ name }, index) =>  {
             return (
               <li
                 key={name}
