@@ -1,5 +1,6 @@
 export type typeCartItem = {
   id: number,
+  deliveryType: 'самовывоз' | 'доставка',
   title: string,
   price: number,
   imageUrl: string,
