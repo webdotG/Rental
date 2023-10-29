@@ -1,17 +1,19 @@
-import Header from './components/header/header';
-import HomePage from './pages/home';
-import CartPage from './pages/cartPage';
-import NotFound from './pages/notFound';
-import ItemPage from './pages/pageItem';
-import LoginPage from './pages/pageLogin';
-import RegisterPage from './pages/pageRegister'
-import PersonalOfficePage from './pages/personalOfficePage'
-import { Routes, Route } from "react-router-dom";
-import './scss/_normalize.scss'
+import Header from './shared-kernel/ui/header/header';
 
+import HomePage from './list/ui/home';
+import ItemPage from './list/item/ui/pageItem';
+
+import CartPage from './cart/ui/cartPage';
+import NotFound from './shared-kernel/ui/notFound';
+import LoginPage from './auth/ui/pageLogin';
+import RegisterPage from './auth/ui/pageRegister'
+import PersonalOfficePage from './user/ui/personalOfficePage'
+
+import { Routes, Route } from "react-router-dom";
+
+import './shared-kernel/ui/normalize.scss'
 
 function App() {
-
   return (
     <div className="wrapper">
       <Header />
@@ -29,6 +31,5 @@ function App() {
     </div>
   )
 }
-
 
 export default App;

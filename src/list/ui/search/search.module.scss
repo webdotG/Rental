@@ -1,0 +1,69 @@
+@import '../../../shared-kernel/ui/variables.scss';
+
+@media (min-width:320px) {
+	
+	.serach_wrapper{
+		width: 100%;
+		background-color: $black;
+	}
+
+.search {
+	width: 250px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin: 0 auto;
+	position: relative;
+	
+}
+
+.input {
+	width: 250px;
+	padding: 6px 10px;
+	padding-left: 40px;
+	border: 2px solid $gold;
+	border-radius: 8px;
+	font-size: 18px;
+	transition: all 0.1s ease-in-out;
+	background-color: $white;
+	
+}
+.icon {
+	width: 21px;
+	height: 21px;
+	opacity: 0.8;
+	position: absolute;
+	left: 6px;
+	top: 23px;
+}
+
+.clearIcon {
+	width: 21px;
+	height: 21px;
+	opacity: 0.4;
+	position: absolute;
+	right: 13px;
+	top: 24px;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+}
+
+// ========================================= 680 px =====================================================
+
+
+@media (min-width: 680px) {
+
+	.search{
+		width: 555px;
+		margin: 0 auto;
+	}
+
+.input{
+	width: 100%;
+}
+
+}

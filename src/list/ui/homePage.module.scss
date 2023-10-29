@@ -1,0 +1,30 @@
+@import '../../shared-kernel/ui/variables.scss';
+
+@media (min-width:320px) {
+  
+
+
+.content__top {
+  background-color: $black;
+}
+
+.content__title_wrapper {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  background-color: $gold;
+}
+
+.content__title {
+  width: 225px;
+  text-align: center;
+}
+
+.some{
+  padding-top: 25px;
+  background-color: $black;
+}
+
+}

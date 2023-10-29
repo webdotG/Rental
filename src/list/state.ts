@@ -1,0 +1,59 @@
+import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { typeItem, typeSearchItemParams, typeItemSliceState } from "./types";
+import { createSlice,} from "@reduxjs/toolkit";
+
+export const fetchItems = createAsyncThunk<typeItem[], typeSearchItemParams >(
+  'items/fetchItems',
+    async (params, thunkApi) => {
+    const { sortBy, order, category, currentPage, search } = params
+    console.log('DEBUG fetch')
+    const { data } = await axios.get<typeItem[]>(
+      `https://651f2c9444a3a8aa47697fdb.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}&${search}`//&${search}
+    )
+    //  return data 
+    // console.log(thunkApi.getState())
+    if (data.length === 0) {
+      return thunkApi.rejectWithValue('пришёл пустой массив items')
+    } return thunkApi.fulfillWithValue(data) //всё нормально пришли данные
+  }
+);
+
+const initialState: typeItemSliceState = {
+  items: [],
+  status: 'loading',
+}
+
+const itemsSlice = createSlice({
+  name: 'items',
+  initialState,
+  reducers: {
+    setItems(state, action) {
+      state.items = action.payload
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchItems.pending, (state) => {
+        state.status = "loading"
+        state.items = []
+        console.log('THUNKAPI идёт отправка запроса')
+      })
+      .addCase(fetchItems.fulfilled, (state, action) => {
+        console.log('fetchItems.fulfilled ', action)
+        state.items = action.payload
+        state.status = "success"
+        console.log('THUNKAPI запрос выполнен')
+      })
+      .addCase(fetchItems.rejected, (state, action) => {
+        console.log('fetchItems.rejected ', action)
+        state.status = "error"
+        state.items = []
+        console.log('THUNKAPI ошибка запроса')
+      })
+  },
+})
+
+// export const selectItemData = (state: RootState) => state.items
+export const { setItems } = itemsSlice.actions
+export default itemsSlice.reducer
