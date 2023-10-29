@@ -13,7 +13,8 @@ import { Routes, Route } from "react-router-dom";
 
 import './shared-kernel/ui/normalize.scss'
 
-function App() {
+function App() { 
+  
   return (
     <div className="wrapper">
       <Header />
