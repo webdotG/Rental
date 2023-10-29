@@ -58,12 +58,12 @@ function ItemPage() {
     <div className={style.item_page_wrapper}>
       <h1 className={style.id_title} >ITEMPAGE ID : {id}</h1>
       <img className={style.item_img} src={item.imageUrl} />
-      <h2 className={style.item_title} >{item.title}</h2>
+      <h2 className={style.item_title} >{item.modelName}</h2>
       <h3 className={style.item_price} >Цена от :{item.price}</h3>
       <ul className={style.item_agent_ifo}>
-        <li className={style.item_agetn_info_img}>logo firm</li>
-        <li className={style.item_agetn_info_name}>name firm</li>
-        <li className={style.item_agetn_info_rating}>rating firm</li>
+        <li className={style.item_agetn_info_img}></li>
+        <li className={style.item_agetn_info_name}></li>
+        <li className={style.item_agetn_info_rating}></li>
       </ul>
       <div className={style.item_block}>
         <ul className={style.item_block__list_type}>
@@ -94,6 +94,7 @@ function ItemPage() {
           </svg>
           <span className={style.item_block__button_text}>Добавить</span>
         </button>
+        
       </div>
       <div className={style.about_price_block}>
         <p>about price block info ????</p>

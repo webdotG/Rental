@@ -58,14 +58,16 @@
   }
 
   .item_agent_ifo {
+    width: 100px;
     padding-left: 10px;
     padding-right: 10px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
+    justify-content: center;
     color: $gold;
     li {
-      width: 225px;
+      width: 75px;
       height: 50px;
       margin-left: 25px;
       margin-bottom: 25px;

@@ -33,7 +33,7 @@ function CartItem({ id, title, price, count, image, deliveryType, sizes }: typeC
   return (
     <li className={style.cart__item} >
       <div className={style.cart__item_img}>
-        <img className={style.item_block__image} src={image} alt="ФОТО ТЕХНИКИ" />
+        <img className={style.item_block__image} src={image} alt="ФОТО ТЕХНИКИ" width='100' height='100'/>
       </div>
       <div className={style.cart__item_info}>
         <h3>{title}</h3>
