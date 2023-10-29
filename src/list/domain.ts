@@ -1,4 +1,9 @@
-export const mockData = {
+import { typeItem } from "./types";
+
+export const mockData: {
+  categories: { id: number, name: string, category: string }[],
+  machines: typeItem[];
+} = {
   "categories": [
     {
       "id": 1,

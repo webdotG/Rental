@@ -36,7 +36,7 @@ const cartSlice = createSlice({
       }
       state.totalPrice = calcTotalPrice(state.items)
     },
-    minusItem(state, action: PayloadAction<string>) {
+    minusItem(state, action: PayloadAction<number>) {
       const findItem = state.items.find((obj) => obj.id === action.payload)
 
       if (findItem && findItem.count > 0) {
@@ -46,7 +46,7 @@ const cartSlice = createSlice({
         return (obj.price * obj.count) + sum
       }, 0)
     },
-    removeItem(state, action: PayloadAction<string>) {
+    removeItem(state, action: PayloadAction<number>) {
       const newItems = state.items.filter((obj) => obj.id !== action.payload);
       state.items = newItems;
       state.totalPrice = newItems.reduce((sum, obj) => {
