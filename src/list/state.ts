@@ -2,8 +2,6 @@ import { createSlice,} from "@reduxjs/toolkit";
 import { typeItemSliceState } from "./types";
 import { fetchItems } from './api';
 
-import { mockData } from "./domain";
-
 const initialState: typeItemSliceState = {
   items: [],
   filteredItems: [],
@@ -85,7 +83,7 @@ const itemsSlice = createSlice({
       })
       .addCase(fetchItems.fulfilled, (state, action) => {
         console.log('fetchItems.fulfilled ', action)
-        state.items = mockData.machines;
+        state.items = action.payload
         state.status = "success"
         console.log('THUNKAPI запрос выполнен')
       })
