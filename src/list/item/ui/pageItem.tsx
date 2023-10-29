@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
+import { mockData } from "../../domain"
 import axios from 'axios'
 import style from './itemPage.module.scss'
 // `https://651f2c9444a3a8aa47697fdb.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}`//&${search}
@@ -13,13 +14,16 @@ function ItemPage() {
     imageUrl: string,
     title: string,
     price: number,
-  }>()
+  }>(true)
 
   useEffect(() => {
     async function fetchItemId() {
       try {
-        const { data } = await axios.get('https://651f2c9444a3a8aa47697fdb.mockapi.io/items/' + id)
-        setItem(data)
+        setItem(mockData.machines.find(item => {
+          return item.id === +id;
+        }));
+
+        // const { data } = await axios.get('https://651f2c9444a3a8aa47697fdb.mockapi.io/items/' + id)
       } catch (error) {
         alert('не смог получить выбранный товар')
       }
