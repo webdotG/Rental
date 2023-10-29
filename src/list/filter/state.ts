@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import {typeSort, typeFilterSliceState } from '../@types'
+import {typeSort, typeFilterSliceState } from './types'
 
 export enum typeSortPropertyEnum {
   RATING_DESC = 'rating',
