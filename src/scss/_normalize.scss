@@ -8,11 +8,15 @@
 }
 
 html {
+  height: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
