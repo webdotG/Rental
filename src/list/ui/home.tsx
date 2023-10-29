@@ -2,9 +2,10 @@ import { useEffect, useCallback } from 'react'  //, useRef
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from '../../shared-kernel/store';
 // import { useNavigate } from 'react-router-dom'
-import { setCategoryId, setCurrentPage, } from "../filter/state"; // setFilters 
-import { fetchItems } from '../state' // typeSearchItemParams
+import { setCategoryId, setCurrentPage } from "../filter/state"; // setFilters 
+import { fetchItems } from '../api' // typeSearchItemParams
 import { typeItem } from '../types';
+import { filterItems } from '../state';
 // import qs from 'qs'
 import Categories from './categories/categories';
 // import  { sortList } from '../components/sort/sort';
@@ -24,7 +25,12 @@ function Home() {
   const sortProperty = useSelector((state: RootState) => state.filter.sort.sortProperty)
   const currentPage = useSelector((state: RootState) => state.filter.currentPage)
   const searchValue = useSelector((state: RootState) => state.filter.searchValue)
-  const items = useSelector((state: RootState) => state.items.items)
+  const items = useSelector((state: RootState) =>  {
+    if (state.items.filteredItems.length) {
+      return state.items.filteredItems;
+    }
+    return state.items.items;
+  })
   const status = useSelector((state: RootState) => state.items.status)
 
   const onChangeCategory = useCallback((id: number) => {
@@ -41,52 +47,20 @@ function Home() {
     const order = sortProperty.includes('-') ? 'asc' : 'desc';
     const category = categoryId > 0 ? `category=${categoryId}` : '';
     const search = searchValue ? `&search=${searchValue}` : ''; // &${search}
-    dispatch(fetchItems({ sortBy, order, category, currentPage, search }))
+    dispatch(fetchItems({ sortBy, order, category, currentPage, search }));
+    // dispatch(filterItems({ categoryId }));
   }
   useEffect(() => {
     getItems()
-  }, [categoryId, sortProperty, currentPage, searchValue])
-
-  // useEffect(() => {
-  //   if (isMounted.current) {
-  //     const queryString = qs.stringify({
-  //       categoryId,
-  //       currentPage,
-  //       sortProperty
-  //     })
-  //     navigate(`?${queryString}`)
-  //   }
-  //   isMounted.current = true
-  // }, [categoryId, sortProperty, currentPage])
-
-  // useEffect(() => {
-  //   if (window.location.search) {
-  //     const params = qs.parse(window.location.search.substring(1)) as unknown as typeSearchItemParams
-  //     const sort = sortList.find((obj) => obj.sortProperty === params.sortBy)
-
-  //     dispatch(setFilters({
-  //       searchValue: params.search,
-  //       categoryId: Number(params.category),
-  //       currentPage: Number(params.currentPage),
-  //       sort:sort ? sort : sortList[0],
-
-  //     }))
-
-  //     // dispatch(
-  //     //   setFilters({
-  //     //     ...params,
-  //     //     sort
-  //     //   })
-  //     // )
-  //     isSearch.current = true
-  //   }
-  // }, [])
-
-
-
+  }, [])
+  useEffect(() => {
+    dispatch(filterItems({ categoryId }));
+  }, [categoryId, currentPage])
 
   const skeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />)
-  const itemArray = items.map((obj: typeItem) => <ItemBlock key={obj.id} {...obj} />)
+  const itemArray = items.map((obj: typeItem) => {
+    return <ItemBlock key={obj.id} {...obj} />;
+  });
 
   return (
     <>

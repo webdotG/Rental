@@ -15,5 +15,6 @@ export type typeItem = {
 }
 export interface typeItemSliceState {
   items: typeItem[] ,
+  filteredItems: typeItem[],
   status: 'loading' | 'success' | 'error'
 }

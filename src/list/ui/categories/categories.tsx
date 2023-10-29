@@ -3,27 +3,24 @@
 
 import style from './categories.module.scss'
 
+import { mockData } from '../../domain';
+
 type typeCategoriesProps = {
   value: number,
   onChangeCategory: (index: number) => void,
 }
 
-const CATEGORIES = ['Все', 'Краны', 'Бульдозеры', 'Эксковаторы', 'Погрузчики', 'Услуги']
-
-
 function Categories({value, onChangeCategory}:typeCategoriesProps) {
  
-
-
   return (
     <div className={style.categories}>
       <ul className={style.categories_list}>
-        {CATEGORIES.map((categoryName, index) => (
+        {mockData.categories.map(({ id, name }, index) => (
           <li
-            key={index}
-            onClick={() => onChangeCategory(index)}
+            key={id}
+            onClick={() => onChangeCategory(id)}
             className={value === index ? 'active' : ''}>
-            {categoryName}</li>
+            {name}</li>
         ))}
 
       </ul>

@@ -7,23 +7,20 @@ const initialState = {
   id: "",
 }
 
-const  authSlice = createSlice({
+const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-
     addUser(state, action: PayloadAction<typeInitialState>){
       state.email = action.payload.email
       state.token = action.payload.token
       state.id = action.payload.id
     },
-
     removeUser(state){
       state.email = ""
       state.token = ""
       state.id = ""
     }
-
   }
 })
 

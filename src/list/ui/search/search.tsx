@@ -1,5 +1,6 @@
 import React, { useRef, useCallback, useState } from 'react'
 import { setSearchValue } from '../../filter/state';
+import { search } from '../../state';
 import { useDispatch } from 'react-redux'
 import debounce from 'lodash.debounce'
 import styles from './search.module.scss'
@@ -36,6 +37,7 @@ function Search() {
   )
   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
+    dispatch(search(event.target.value));
     updateSearchValue(event.target.value)
   }
 

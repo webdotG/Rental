@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
+import { sortItems } from '../../state';
 import { setSort, typeSortPropertyEnum } from '../../filter/state';
 import { RootState } from "../../../shared-kernel/store";
 import style from './sort.module.scss'
@@ -26,25 +27,10 @@ function Sort() {
   const [open, setOpen] = useState(false)
 
   const onClickListItem = (obj: typeSortList) => {
+    dispatch(sortItems(obj));
     dispatch(setSort(obj))
     setOpen(false)
   }
-
-  //   document.body.addEventListener('click', handleClickOutside)
-  //   return () => {
-  //     console.log('componen did unmount')
-  //     document.removeEventListener('click', handleClickOutside)
-  //   }
-  // }, [])
-  // useEffect(() => {
-  //   document.body.addEventListener('click', { once: true }, (event) => {
-  //     if (!event.composedPath().includes(sortRef.current)) {
-  //       setOpen(false);
-  //     }
-  //   });
-  // }, []);
-
-
 
   type typePopUpClick = MouseEvent & {
     path: Node[]

@@ -4,7 +4,6 @@ import Form from '../form/form';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom'
 
-
 function Login () {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()

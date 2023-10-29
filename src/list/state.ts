@@ -1,26 +1,12 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { typeItem, typeSearchItemParams, typeItemSliceState } from "./types";
 import { createSlice,} from "@reduxjs/toolkit";
+import { typeItemSliceState } from "./types";
+import { fetchItems } from './api';
 
-export const fetchItems = createAsyncThunk<typeItem[], typeSearchItemParams >(
-  'items/fetchItems',
-    async (params, thunkApi) => {
-    const { sortBy, order, category, currentPage, search } = params
-    console.log('DEBUG fetch')
-    const { data } = await axios.get<typeItem[]>(
-      `https://651f2c9444a3a8aa47697fdb.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}&${search}`//&${search}
-    )
-    //  return data 
-    // console.log(thunkApi.getState())
-    if (data.length === 0) {
-      return thunkApi.rejectWithValue('пришёл пустой массив items')
-    } return thunkApi.fulfillWithValue(data) //всё нормально пришли данные
-  }
-);
+import { mockData } from "./domain";
 
 const initialState: typeItemSliceState = {
   items: [],
+  filteredItems: [],
   status: 'loading',
 }
 
@@ -31,6 +17,65 @@ const itemsSlice = createSlice({
     setItems(state, action) {
       state.items = action.payload
     },
+    search(state, action) {
+      if (action.payload) {
+        const newItems = state.filteredItems.length ? state.filteredItems : state.items;
+
+        console.log(action);
+
+        state.filteredItems = newItems.filter((item) => {
+          if (item.modelName.toLowerCase().indexOf(action.payload.toLowerCase()) !== -1) {
+            return true;
+          }
+        });
+      } else {
+        state.filteredItems = [];
+      }
+    },
+    filterItems(state, action) {
+      const { categoryId } = action.payload;
+
+      state.filteredItems = state.items.filter((item) => {
+        console.log(item.categoryId);
+        if (item.categoryId === categoryId) {
+          return true;
+        }
+      });
+    },
+    sortItems(state, action) {
+      const newItems = state.filteredItems.length ? state.filteredItems : state.items;
+      const field = action.payload.sortPropery === 'title' ? 'modelName' : 'price';
+
+      console.log('[FIE]', field);
+      state.filteredItems = newItems.sort((a, b) => {
+        let nameA = a[field]; // Convert names to uppercase for case-insensitive sorting
+        let nameB = b[field];
+        if (field === 'modelName') {
+          nameA = a[field].toUpperCase(); // Convert names to uppercase for case-insensitive sorting
+          nameB = b[field].toUpperCase();
+        }
+
+        if (action.payload.name.endsWith('возрастанию')) {
+          if (nameA < nameB) {
+            return -1; // a should come before b
+          } else if (nameA > nameB) {
+            return 1; // a should come after b
+          } else {
+            return 0; // names are equal
+          }
+        } else {
+          if (nameA > nameB) {
+            return -1; // a should come before b
+          } else if (nameA < nameB) {
+            return 1; // a should come after b
+          } else {
+            return 0; // names are equal
+          }
+        }
+
+      });
+
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -41,7 +86,7 @@ const itemsSlice = createSlice({
       })
       .addCase(fetchItems.fulfilled, (state, action) => {
         console.log('fetchItems.fulfilled ', action)
-        state.items = action.payload
+        state.items = mockData.machines;
         state.status = "success"
         console.log('THUNKAPI запрос выполнен')
       })
@@ -55,5 +100,5 @@ const itemsSlice = createSlice({
 })
 
 // export const selectItemData = (state: RootState) => state.items
-export const { setItems } = itemsSlice.actions
+export const { setItems, filterItems, search, sortItems } = itemsSlice.actions
 export default itemsSlice.reducer

@@ -15,10 +15,10 @@ type typeItemBlockProps = {
   price: number,
   imageUrl: string,
   sizes: number[],
-  types: number[],
+  fields: {name: string, value: string}[],
 }
 
-function ItemBlock({ id, title, price, imageUrl, sizes, types }: typeItemBlockProps) {
+function ItemBlock({ id, modelName, price, imageUrl, sizes, fields }: typeItemBlockProps) {
 
   const [activeType, setActiveType] = useState(0)
   const [activeSize, setActiveSize] = useState(0)
@@ -37,7 +37,7 @@ function ItemBlock({ id, title, price, imageUrl, sizes, types }: typeItemBlockPr
   const onClickAdd = () => {
     const item: typeCartItem = {
       id,
-      title,
+      title: modelName,
       price,
       type: NAMETYPES[activeType],
       size: SIZEVALUES[activeSize],
@@ -50,7 +50,7 @@ function ItemBlock({ id, title, price, imageUrl, sizes, types }: typeItemBlockPr
   const onClickDelete = () => {
     const item: typeCartItem = {
       id,
-      title,
+      title: modelName,
       price,
       type: NAMETYPES[activeType],
       size: SIZEVALUES[activeSize],
@@ -63,27 +63,29 @@ function ItemBlock({ id, title, price, imageUrl, sizes, types }: typeItemBlockPr
   return (
     <div className={style.item_block}>
       <img className={style.item_block__image} src={imageUrl} alt="ФОТО ТЕХНИКИ" />
-      <h4 className={style.item_block__title}>{title}</h4>
+      <h4 className={style.item_block__title}>{modelName}</h4>
       <div className={style.item_block__price}>от {price} ₽</div>
       <div className={style.item_block__selector}>
         <ul className={style.item_block__list_type}>
-          {types.map((typeId, index) => (
-            <li
-              key={typeId}
-              onClick={() => setActiveType(index)}
-              className={activeType === index ? style.active : ''}>
-              {NAMETYPES[typeId]}</li>
-          ))}
+          {fields.map(({ name, title }, index) =>  {
+            return (
+              <li
+                key={name}
+                onClick={() => setActiveType(index)}
+                className={activeType === index ? style.active : ''}>
+                {name}</li>
+            )
+          })}
         </ul>
         <button className={style.delivery_link}>зона работ на карте</button>
         <ul className={style.item_block__list_size}>
-          {sizes.map((size, index) => (
+          {/*sizes.map((size, index) => (
             <li
               key={size}
               onClick={() => setActiveSize(index)}
               className={activeSize === index ? style.active : ''}>
               {size}/</li>
-          ))}
+          ))*/}
         </ul>
       </div>
       <div className={style.item_block__bottom}>
