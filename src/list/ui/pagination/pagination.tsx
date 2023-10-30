@@ -9,19 +9,19 @@ type typePaginationProps = {
 function Pagination({onChangePage, currentPage}:typePaginationProps) {
 
   return (
-    <>
+    <div className={style.pagination_wrapper}>
       <ReactPaginate
-        className={style.root}
+        className={style.list}
         breakLabel="..."
         nextLabel=">"
         previousLabel="<"
         onPageChange={(event) => onChangePage(event.selected + 1)}
         pageRangeDisplayed={4}
-        pageCount={10}
+        pageCount={3}
         forcePage={currentPage - 1}
         renderOnZeroPageCount={null}
       />
-    </>
+    </div>
   )
 }
 

@@ -1,34 +1,48 @@
-.root {
-	li {
-		display: inline-block;
+@import '../../../shared-kernel/ui/variables';
 
-		&.selected {
-		}
+@media (min-width:320px) {
+	
+	.pagination_wrapper{
+		width: auto;
+		padding-top: 10px;
+		padding-bottom: 20px;
+		background-color: $black;
 	}
 
-	a {
-		text-align: center;
-		width: 45px;
-		height: 45px;
-		line-height: 42px;
-		border: 1px solid black;
-		border-radius: 30px;
-		margin-right: 15px;
-		cursor: pointer;
-		display: inline-block;
-
-		&:hover {
-			background-color: black;
-			color: white;
+	.list {
+		width: 250px;
+		margin: 0 auto;
+		display: flex;
+		background-color: $black;
+	
+		a {
+			width: 35px;
+			height: 35px;
+			margin-right: 15px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: 2px solid $gold;
+			color: $gold;
+			border-radius: 30px;
+			cursor: pointer;
+	
+			&:hover {
+				border: 2px solid $white;
+				color: $white;
+			}
 		}
-	}
-
-	:global {
-		.selected {
-			a {
-				background-color: black;
-				color: white;
+	
+		:global {
+			.selected {
+				a {
+					border: 2px solid $white;
+				color: $white;
+				}
 			}
 		}
 	}
+	
+
 }
+
