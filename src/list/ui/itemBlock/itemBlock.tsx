@@ -19,7 +19,7 @@ type typeItemBlockProps = {
   fields: {name: string, value: string}[],
 }
 
-function ItemBlock({ id, modelName, price, imageUrl, fields}: typeItemBlockProps) {
+function ItemBlock({ id, modelName, price, imageUrl}: typeItemBlockProps) {
   const [deliveryType, setDeliveryType] = useState<'самовывоз' | 'доставка'>('доставка');
 
   const [activeType] = useState(0)
