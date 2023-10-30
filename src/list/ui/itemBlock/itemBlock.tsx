@@ -61,7 +61,7 @@ function ItemBlock({ id, modelName, price, imageUrl }: typeItemBlockProps) {
     <div className={style.item_block}>
       <img className={style.item_block__image} src={imageUrl} alt="ФОТО ТЕХНИКИ" />
       <h4 className={style.item_block__title}>{modelName}</h4>
-      <div className={style.item_block__price}>Цена от : {price}</div>
+      <div className={style.item_block__price}>Цена от : {price} р</div>
       <div className={style.item_block__selector}>
         <ul className={style.item_block__list_type}>
           {NAMETYPES.map((name) =>  {
