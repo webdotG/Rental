@@ -177,120 +177,32 @@ export const mockData: {
         }
       ]
     },
-
     {
-      "id": 6,
+      "id": 18,
       "categoryId": 2,
-      "modelName": "Фронтальный погрузчик L39-B3",
-      "price": 21,
-      "imageUrl": "https://shantui-sit.ru/upload/resize_cache/iblock/442/244_244_0/L39_B3.jpg",
+      "modelName": "Сельскохозяйственный погрузчик L55B5-AGRI",
+      "price": 56,
+      "imageUrl": "https://shantui-sit.ru/upload/resize_cache/iblock/321/244_244_0/L55_B5.jpg",
       "fields": [
         {
           "name": "Эксплуатационная масса (т)",
-          "value": "10,8"
+          "value": "17"
         },
         {
-          "name": "Объем ковша, куб.м.",
-          "value": "1,8"
-        },
-        {
-          "name": "рузоподъемность, т",
-          "value": "3"
+          "name": "бъем ковша, куб.м.:",
+          "value": "3.3"
         },
         {
           "name": "Двигатель:",
-          "value": "WP6"
+          "value": "	Weichai STEYR WD10G220E23"
         },
         {
           "name": "Полная мощность:",
-          "value": "92/2000"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "categoryId": 2,
-      "price": 22,
-      "modelName": "Фронтальный погрузчик L36-B3",
-      "imageUrl": "https://shantui-sit.ru/upload/resize_cache/iblock/450/u4kc3wqgi8emru0vzq80kiarffs99lje/244_244_0/A24A5988.JPG",
-      "fields": [
-        {
-          "name": "Эксплуатационная масса (т)",
-          "value": "10,5"
+          "value": "162 кВт (2000 об./мин)"
         },
         {
-          "name": "Объем ковша, куб.м.",
-          "value": "1,7"
-        },
-        {
-          "name": "рузоподъемность, т",
-          "value": "3"
-        },
-        {
-          "name": "Двигатель:",
-          "value": "WP6G125E201"
-        },
-        {
-          "name": "Полная мощность:",
-          "value": "92кВт (125л.с.) при 2000об/мин"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "categoryId": 2,
-      "modelName": "Фронтальный погрузчик SL50WN",
-      "price": 23,
-      "imageUrl": "https://shantui-sit.ru/upload/resize_cache/iblock/50f/244_244_0/SL50WN.jpg",
-      "fields": [
-        {
-          "name": "Эксплуатационная масса (т)",
-          "value": "17,1"
-        },
-        {
-          "name": "Объем ковша, куб.м.",
-          "value": "3"
-        },
-        {
-          "name": "рузоподъемность, т",
-          "value": "5"
-        },
-        {
-          "name": "Двигатель:",
-          "value": "Weichai STEYR WD10G220E23"
-        },
-        {
-          "name": "Полная мощность:",
-          "value": "162кВт/2000 об./мин"
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "categoryId": 2,
-      "price": 24,
-      "modelName": "Фронтальный погрузчик L58K-B5",
-      "imageUrl": "https://shantui-sit.ru/upload/resize_cache/iblock/801/qbk807703vx94ew94q243giaekgci248/244_244_0/L58K_B5.png",
-      "fields": [
-        {
-          "name": "Эксплуатационная масса (т)",
-          "value": "18,4"
-        },
-        {
-          "name": "Объем ковша, куб.м.",
-          "value": "3,5"
-        },
-        {
-          "name": "рузоподъемность, т",
-          "value": "5,5"
-        },
-        {
-          "name": "Двигатель:",
-          "value": "Weichai STEYR WD10G220E23"
-        },
-        {
-          "name": "Полная мощность:",
-          "value": "162 кВт/200 л.с. (при 2000 об./мин)"
+          "name": "Грузоподъемность, т:",
+          "value": "	5"
         }
       ]
     },
@@ -494,35 +406,7 @@ export const mockData: {
         }
       ]
     },
-    {
-      "id": 18,
-      "categoryId": 2,
-      "modelName": "Сельскохозяйственный погрузчик L55B5-AGRI",
-      "price": 56,
-      "imageUrl": "https://shantui-sit.ru/upload/resize_cache/iblock/321/244_244_0/L55_B5.jpg",
-      "fields": [
-        {
-          "name": "Эксплуатационная масса (т)",
-          "value": "17"
-        },
-        {
-          "name": "бъем ковша, куб.м.:",
-          "value": "3.3"
-        },
-        {
-          "name": "Двигатель:",
-          "value": "	Weichai STEYR WD10G220E23"
-        },
-        {
-          "name": "Полная мощность:",
-          "value": "162 кВт (2000 об./мин)"
-        },
-        {
-          "name": "Грузоподъемность, т:",
-          "value": "	5"
-        }
-      ]
-    },
+    
     {
       "id": 19,
       "categoryId": 3,
