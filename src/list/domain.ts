@@ -184,12 +184,12 @@ export const mockData: {
           "value": "17"
         },
         {
-          "name": "бъем ковша, куб.м.:",
+          "name": "Объем ковша, куб.м.:",
           "value": "3.3"
         },
         {
           "name": "Двигатель:",
-          "value": "	Weichai STEYR WD10G220E23"
+          "value": "Weichai STEYR WD10G220E23"
         },
         {
           "name": "Полная мощность:",
@@ -197,7 +197,7 @@ export const mockData: {
         },
         {
           "name": "Грузоподъемность, т:",
-          "value": "	5"
+          "value": "5"
         }
       ]
     },
@@ -210,15 +210,15 @@ export const mockData: {
       "fields": [
         {
           "name": "Эксплуатационная масса (т)",
-          "value": " 24.8"
+          "value": "24.8"
         },
         {
-          "name": "бъем ковша, куб.м.:",
+          "name": "Объем ковша, куб.м.:",
           "value": "1.05"
         },
         {
           "name": "Двигатель:",
-          "value": " Cummins QSB7 (Tier-Ⅲ)"
+          "value": "Cummins QSB7 (Tier-Ⅲ)"
         },
         {
           "name": "Полная мощность:",
@@ -238,12 +238,12 @@ export const mockData: {
           "value": "21.9"
         },
         {
-          "name": "бъем ковша, куб.м.:",
+          "name": "Объем ковша, куб.м.:",
           "value": "1.05"
         },
         {
           "name": "Двигатель:",
-          "value": " Cummins B5.9-C (Tier 2)"
+          "value": "Cummins B5.9-C (Tier 2)"
         },
         {
           "name": "Полная мощность:",
@@ -276,7 +276,7 @@ export const mockData: {
         },
         {
           "name": "Ширина отвала, мм:",
-          "value": "	3660 мм / 3965 мм / 4270 мм"
+          "value": "3660 мм / 3965 мм / 4270 мм"
         }
       ]
     }

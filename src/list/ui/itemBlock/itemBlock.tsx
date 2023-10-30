@@ -19,8 +19,8 @@ type typeItemBlockProps = {
   fields: {name: string, value: string}[],
 }
 
-function ItemBlock({ id, modelName, price, imageUrl }: typeItemBlockProps) {
-  const [deliveryType, setDeliveryType] = useState<'самовывоз' | 'доставка'>('самовывоз');
+function ItemBlock({ id, modelName, price, imageUrl, fields}: typeItemBlockProps) {
+  const [deliveryType, setDeliveryType] = useState<'самовывоз' | 'доставка'>('доставка');
 
   const [activeType] = useState(0)
   const [activeSize] = useState(0)
@@ -56,6 +56,8 @@ function ItemBlock({ id, modelName, price, imageUrl }: typeItemBlockProps) {
     }
     dispatch(deleteItem(item))
   }
+
+
 
   return (
     <div className={style.item_block}>

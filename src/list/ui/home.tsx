@@ -59,9 +59,10 @@ function Home() {
 
   const skeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />)
   const itemArray = items.map((obj: typeItem) => {
+    // console.log('OBJ IS:', obj)
     return <ItemBlock key={obj.id} {...obj} />;
   });
-
+  
   return (
     <>
       <div className="content__top">

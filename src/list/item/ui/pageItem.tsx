@@ -52,6 +52,7 @@ function ItemPage() {
     fetchItemId()
   }, [id])
 
+
   if (!item) {
     return 'ЗАГРУЗКА...'
   } return (
@@ -59,15 +60,20 @@ function ItemPage() {
       <h1 className={style.id_title} >ITEMPAGE ID : {id}</h1>
       <img className={style.item_img} src={item.imageUrl} />
       <h2 className={style.item_title} >{item.modelName}</h2>
-      <h3 className={style.item_price} >Цена от :{item.price}</h3>
-      <ul className={style.item_agent_ifo}>
-        <li className={style.item_agetn_info_img}></li>
-        <li className={style.item_agetn_info_name}></li>
-        <li className={style.item_agetn_info_rating}></li>
+      <h3 className={style.item_price} >Цена от : {item.price} р</h3>
+      <ul className={style.item_agent_ifo_list}>
+        {
+          item.fields.map((i, index) =>
+            <li className={style.item_agent_ifo_params} key={index}>
+              <p>{i.name}</p>
+              <p>{i.value}</p>
+            </li>
+          )
+        }
       </ul>
       <div className={style.item_block}>
         <ul className={style.item_block__list_type}>
-          {NAMETYPES.map((name) =>  {
+          {NAMETYPES.map((name) => {
             return (
               <li
                 key={name}
@@ -94,7 +100,7 @@ function ItemPage() {
           </svg>
           <span className={style.item_block__button_text}>Добавить</span>
         </button>
-        
+
       </div>
       <div className={style.about_price_block}>
         <p>about price block info ????</p>
