@@ -61,7 +61,7 @@ function ItemPage() {
       <img className={style.item_img} src={item.imageUrl} />
       <h2 className={style.item_title} >{item.modelName}</h2>
       <h3 className={style.item_price} >Цена от : {item.price} р</h3>
-      <ul className={style.item_agent_ifo_list}>
+      <ul className={style.item_agent_info_list}>
         {
           item.fields.map((i, index) =>
             <li className={style.item_agent_ifo_params} key={index}>
@@ -100,14 +100,6 @@ function ItemPage() {
           </svg>
           <span className={style.item_block__button_text}>Добавить</span>
         </button>
-
-      </div>
-      <div className={style.about_price_block}>
-        <p>about price block info ????</p>
-      </div>
-      <div className={style.item_text_wrapper}>
-        <h4>item title</h4>
-        <p>some text about item</p>
       </div>
     </div>
   )
