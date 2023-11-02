@@ -16,10 +16,10 @@ type typeItemBlockProps = {
   imageUrl: string,
   sizes?: number[],
   modelName: string,
-  fields: {name: string, value: string}[],
+  fields: { name: string, value: string }[],
 }
 
-function ItemBlock({ id, modelName, price, imageUrl}: typeItemBlockProps) {
+function ItemBlock({ id, modelName, price, imageUrl }: typeItemBlockProps) {
   const [deliveryType, setDeliveryType] = useState<'самовывоз' | 'доставка'>('доставка');
 
   const [activeType] = useState(0)
@@ -66,7 +66,7 @@ function ItemBlock({ id, modelName, price, imageUrl}: typeItemBlockProps) {
       <div className={style.item_block__price}>Цена от : {price} р</div>
       <div className={style.item_block__selector}>
         <ul className={style.item_block__list_type}>
-          {NAMETYPES.map((name) =>  {
+          {NAMETYPES.map((name) => {
             return (
               <li
                 key={name}
