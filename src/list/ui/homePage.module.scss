@@ -1,32 +1,32 @@
 @import '../../shared-kernel/ui/variables.scss';
 
 @media (min-width:320px) {
-  
 
 
-.content__top {
-  background-color: $black;
-}
 
-.content__title_wrapper {
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  display: flex;
-  justify-content: center;
-  background-color: $gold;
-}
+  .content__top {
+    background-color: $black;
+  }
 
-.content__title {
-  width: 225px;
-  text-align: center;
-}
+  .content__title_wrapper {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: $gold;
+  }
 
-.some{
-  padding-top: 25px;
-  padding-bottom: 5px;
-  background-color: $black;
-}
+  .content__title {
+    width: 225px;
+    text-align: center;
+  }
+
+  .some {
+    padding-top: 25px;
+    padding-bottom: 5px;
+    background-color: $black;
+  }
 
 }
 
@@ -34,9 +34,9 @@
 ///////////////////////////////////////////860
 
 @media (min-width:860px) {
-  
 
-  .tabelet_width_wrapper{
+
+  .tabelet_width_wrapper {
     width: 100%;
     display: flex;
     padding-left: 40px;
@@ -44,4 +44,11 @@
     background-color: $black;
   }
 
+  .some {
+    padding-top: 50px;
+    padding-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }

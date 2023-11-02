@@ -158,47 +158,16 @@
     border: 1px solid transparent;
     background-color: transparent;
   }
-
-
 }
 
-// ========================================= 680 px =====================================================
+///////////////////////////////////860
 
 
-// @media (min-width: 680px) {
+@media (min-width: 860px) {
 
-//   .header {
-//     padding-top: 30px;
-//     padding-left: 40px;
-//     padding-right: 40px;
-//   }
-
-//   .header__logo {
-//     justify-content: space-between;
-//   }
-
-//   .header__logo_img {
-//     width: 100px;
-//     height: 100px;
-//   }
-
-//   .auth {
-//     padding-left: 40px;
-//     margin-right: auto;
-//     width: 222px;
-//   }
-
-//   .header_user {
-//     justify-content: space-between;
-//   }
-
-//   .header__login {
-//     padding-left: 60px;
-//   }
-
-//   .button__cart_price,
-//   .button__cart_count {
-//     margin-right: 20px;
-//   }
-
-// }
+  .header_user{
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
