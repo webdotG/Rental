@@ -25,7 +25,7 @@ function Home() {
   const sortProperty = useSelector((state: RootState) => state.filter.sort.sortProperty)
   const currentPage = useSelector((state: RootState) => state.filter.currentPage)
   const searchValue = useSelector((state: RootState) => state.filter.searchValue)
-  const items = useSelector((state: RootState) =>  {
+  const items = useSelector((state: RootState) => {
     if (state.items.filteredItems.length) {
       return state.items.filteredItems;
     }
@@ -62,13 +62,15 @@ function Home() {
     // console.log('OBJ IS:', obj)
     return <ItemBlock key={obj.id} {...obj} />;
   });
-  
+
   return (
     <>
       <div className="content__top">
-        <Search/>
-        <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort />
+        <Search />
+        <div className={style.tabelet_width_wrapper}>
+          <Categories value={categoryId} onChangeCategory={onChangeCategory} />
+          <Sort />
+        </div>
       </div>
       <div className={style.content__title_wrapper}>
         <h2 className={style.content__title}>id категории :  {categoryId}</h2>
