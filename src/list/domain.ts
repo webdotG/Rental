@@ -175,7 +175,7 @@ export const mockData: {
     {
       "id": 6,
       "categoryId": 2,
-      "modelName": "Сельскохозяйственный погрузчик L55B5-AGRI",
+      "modelName": "Погрузчик L55B5-AGRI",
       "price": 6,
       "imageUrl": "https://shantui-sit.ru/upload/resize_cache/iblock/7f1/490_490_0/L55_B5_ZJ-_34_.jpg",
       "fields": [
@@ -204,33 +204,8 @@ export const mockData: {
     {
       "id": 7,
       "categoryId": 3,
-      "modelName": "Экскаватор SE265LC",
-      "price": 7,
-      "imageUrl": "https://shantui-sit.ru/upload/resize_cache/iblock/37e/244_244_0/se220.jpg",
-      "fields": [
-        {
-          "name": "Эксплуатационная масса (т)",
-          "value": "24.8"
-        },
-        {
-          "name": "Объем ковша, куб.м.:",
-          "value": "1.05"
-        },
-        {
-          "name": "Двигатель:",
-          "value": "Cummins QSB7 (Tier-Ⅲ)"
-        },
-        {
-          "name": "Полная мощность:",
-          "value": "150 (204) при 2050 об/мин"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "categoryId": 3,
       "modelName": "Экскаватор SE220",
-      "price": 8,
+      "price": 7,
       "imageUrl": "https://shantui-sit.ru/upload/resize_cache/iblock/37e/244_244_0/se220.jpg",
       "fields": [
         {
@@ -248,6 +223,31 @@ export const mockData: {
         {
           "name": "Полная мощность:",
           "value": "112 (152) при 1950"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "categoryId": 3,
+      "modelName": "Экскаватор SE265LC",
+      "price": 8 ,
+      "imageUrl": "https://shantui-sit.ru/upload/resize_cache/iblock/37e/244_244_0/se220.jpg",
+      "fields": [
+        {
+          "name": "Эксплуатационная масса (т)",
+          "value": "24.8"
+        },
+        {
+          "name": "Объем ковша, куб.м.:",
+          "value": "1.05"
+        },
+        {
+          "name": "Двигатель:",
+          "value": "Cummins QSB7 (Tier-Ⅲ)"
+        },
+        {
+          "name": "Полная мощность:",
+          "value": "150 (204) при 2050 об/мин"
         }
       ]
     },
