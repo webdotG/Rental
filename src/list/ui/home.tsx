@@ -2,7 +2,7 @@ import { useEffect, useCallback } from 'react'  //, useRef
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from '../../shared-kernel/store';
 // import { useNavigate } from 'react-router-dom'
-import { setCategoryId, setCurrentPage } from "../filter/state"; // setFilters 
+import { setCategoryId} from "../filter/state"; // setFilters  , setCurrentPage 
 import { fetchItems } from '../api' // typeSearchItemParams
 import { typeItem } from '../types';
 import { filterItems } from '../state';
