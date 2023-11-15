@@ -7,7 +7,7 @@ import { selectCart } from "../../../cart/state";
 import { removeUser } from '../../../auth/state';
 // import Search from "../search/search"
 import style from './header.module.scss'
-import Footer from "../footer/footer";
+// import Footer from "../footer/footer";
 
 function Header() {
   const location = useLocation()
