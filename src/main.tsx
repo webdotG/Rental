@@ -8,7 +8,7 @@ import './FIREBASE.ts'
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <Provider store={store}>
       <HashRouter>
-         <App />
+         <App/>
       </HashRouter>
     </Provider>
 )
