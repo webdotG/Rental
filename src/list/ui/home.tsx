@@ -15,6 +15,7 @@ import Pagination from './pagination/pagination';
 import ItemBlock from './itemBlock/itemBlock';
 import Search from "./search/search"
 import style from './homePage.module.scss'
+import Footer from '../../shared-kernel/ui/footer/footer';
 
 function Home() {
   // const navigate = useNavigate()
@@ -92,7 +93,8 @@ function Home() {
           // })
         }
       </div>
-      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+      {/* <Pagination currentPage={currentPage} onChangePage={onChangePage} /> */}
+      <Footer />
     </>
   )
 }

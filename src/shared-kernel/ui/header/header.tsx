@@ -27,14 +27,16 @@ function Header() {
 
   return (
     <div className={style.header_wrapper}>
+      <p className={style.sale}>приложение продаётся</p>
       <header className={style.header}>
         <div className={style.logo_wrapper}>
           <div className={style.header__logo}>
             <Link className={style.header__logo_link}
               to="/Rental">
              <div className={style.header_title}>
-              <h1>RENT</h1>
-              <p>аренда строительной техники</p>
+              <h1>GRANT RENTAL</h1>
+              <p>первое приложение</p>
+              <p>для аренды сроительной техники</p>
             </div>     
               {/* <img className={style.header__logo_img} src='../../../public/logoTest.svg' alt="logo" /> */}
             </Link>
