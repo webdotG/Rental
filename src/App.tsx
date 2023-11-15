@@ -20,12 +20,12 @@ function App() {
       <Header />
       <div className="content">
         <Routes>
-          <Route path='/Rental/#/Rental/login' element={ <LoginPage />} />
-          <Route path='/Rental/#/Rental' element={<HomePage />} />
-          <Route path='/Rental/#/Rental/register' element={<RegisterPage />} />
-          <Route path='/Rental/#/Rental/personaloffice' element={<PersonalOfficePage /> }/>
-          <Route path='/Rental/#/Rental/cart' element={<CartPage />} />
-          <Route path='/Rental/#/Rental/item/:id' element={<ItemPage />} />
+          <Route path='/Rental/login' element={ <LoginPage />} />
+          <Route path='/Rental' element={<HomePage />} />
+          <Route path='/Rental/register' element={<RegisterPage />} />
+          <Route path='/Rental/personaloffice' element={<PersonalOfficePage /> }/>
+          <Route path='/Rental/cart' element={<CartPage />} />
+          <Route path='/Rental/item/:id' element={<ItemPage />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </div>
