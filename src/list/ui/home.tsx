@@ -11,7 +11,7 @@ import Categories from './categories/categories';
 // import  { sortList } from '../components/sort/sort';
 import Sort from './sort/sort';
 import Skeleton from './skeleton';
-import Pagination from './pagination/pagination';
+// import Pagination from './pagination/pagination';
 import ItemBlock from './itemBlock/itemBlock';
 import Search from "./search/search"
 import style from './homePage.module.scss'
@@ -38,9 +38,9 @@ function Home() {
     dispatch(setCategoryId(id))
   }, [])
 
-  const onChangePage = (page: number) => {
-    dispatch(setCurrentPage(page))
-  }
+  // const onChangePage = (page: number) => {
+  //   dispatch(setCurrentPage(page))
+  // }
 
   const getItems = async () => {
     window.scrollTo(0, 0)
@@ -56,7 +56,7 @@ function Home() {
   }, [])
   useEffect(() => {
     dispatch(filterItems({ categoryId }));
-  }, [categoryId, currentPage])
+  }, [categoryId]) //, currentPage
 
   const skeleton = [...new Array(9)].map((_, index) => <Skeleton key={index} />)
   const itemArray = items.map((obj: typeItem) => {

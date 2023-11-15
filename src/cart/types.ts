@@ -1,5 +1,5 @@
 export type typeCartItem = {
-  id: number | string | undefined ,
+  id: any ,
   deliveryType: 'самовывоз' | 'доставка',
   title: string,
   price: number,
