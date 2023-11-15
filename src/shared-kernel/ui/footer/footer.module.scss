@@ -1,24 +1,59 @@
 @import '../../../shared-kernel/ui/variables.scss';
 
 @media (min-width: 320px) {
-  .footer_wrapper{
+  
+  .footer_wrapper {
     padding-top: 15px;
     padding-bottom: 45px;
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: $white;
+    background-color: $black;
   }
 
-  .footer_title_wrapper{
+  .footer{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    
+    border: 2px $gold solid;
+    border-radius: 10px;
 
-    h3{
-      font-size: 21px;
-      padding-bottom: 5px;
-    }
+  }
 
-    h5{
+  .footer_title_wrapper {
+
+    h3 {
+      padding-bottom: 10px;
+      text-align: center;
       font-size: 18px;
+      color: $white;
+      font-weight: 400;
     }
+
+    h5 {
+      text-align: center;
+      font-size: 18px;
+      color: $gold;
+      font-weight: 200;
+    }
+
+  }
+
+  .footer_list{
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .footer_item {
+
+    h5 {
+      font-size: 16px;
+      font-weight: 400;
+      color: $gold;
+      text-decoration: underline;
+    }
+
   }
 }

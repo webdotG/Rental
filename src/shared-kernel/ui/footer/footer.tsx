@@ -42,9 +42,9 @@ function Footer() {
 
   return (
     <div className={style.footer_wrapper}>
-      <footer>
+      <footer className={style.footer}>
         <div className={style.footer_title_wrapper}>
-          <h3>разработка и дизайн :</h3>
+          <h3>Разработка и дизайн :</h3>
           <h5>Грант Кирилл, "webDotG"</h5>
         </div>
         <ul className={style.footer_list}>

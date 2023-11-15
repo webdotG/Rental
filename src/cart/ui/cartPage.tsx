@@ -5,6 +5,7 @@ import { clearItems } from '../state';
 import CartEmpty from "./cart_empty/cartEmpty";
 import style from './cartPage.module.scss';
 import { Link } from "react-router-dom";
+import Footer from "../../shared-kernel/ui/footer/footer";
 
 function Cart() {
   const dispatch = useDispatch()
@@ -96,6 +97,7 @@ function Cart() {
 
             </div>
           </div>
+          <Footer />
         </div>
   );
 }
