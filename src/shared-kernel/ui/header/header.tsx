@@ -134,7 +134,6 @@ function Header() {
         {/* { location.pathname === '/Rental/' && <Search />} */}
       </header >
       <p className={style.sale}>приложение продаётся</p>
-      <Footer/>
     </div>
   )
 
