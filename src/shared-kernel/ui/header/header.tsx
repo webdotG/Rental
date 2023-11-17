@@ -7,6 +7,7 @@ import { selectCart } from "../../../cart/state";
 import { removeUser } from '../../../auth/state';
 // import Search from "../search/search"
 import style from './header.module.scss'
+import Footer from "../footer/footer";
 // import Footer from "../footer/footer";
 
 function Header() {
@@ -28,7 +29,8 @@ function Header() {
 
   return (
     <div className={style.header_wrapper}>
-      <p className={style.sale}>приложение продаётся</p>
+      <Footer />
+      {/* <p className={style.sale}>приложение продаётся</p> */}
       <header className={style.header}>
         <div className={style.logo_wrapper}>
           <div className={style.header__logo}>

@@ -6,20 +6,22 @@ const KONTAKTS = [
   {
     id: 1,
     name: 'Telegram',
-    link: 'link to .....',
-    // img: 'link to .....',
+    link: 'https://t.me/KirillGrant',
   },
   {
     id: 2,
     name: 'Whats up',
-    link: 'link to .....',
-    // img: 'link to .....',
+    link: 'https://wa.me/+79022888989',
   },
   {
     id: 3,
     name: 'Email',
-    link: 'link to .....',
-    // img: 'link to .....',
+    link: 'mailto:webdotg.inbox@gmail.com',
+  },
+  {
+    id: 4,
+    name: 'Позвонить',
+    link: 'tel:+79022888989',
   }
 ]
 
@@ -31,11 +33,11 @@ function Footer() {
       <li className={style.footer_item}
         key={obj.id}
       >
-        <Link className={style.footer_link_item}
-          to=''>
+        <a className={style.footer_link_item}
+          href={obj.link}>
           {/* <img>{obj.img}</img> */}
           <h5>{obj.name}</h5>
-        </Link>
+        </a>
       </li>
     );
   });
